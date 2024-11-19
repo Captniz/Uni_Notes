@@ -121,7 +121,7 @@ int exadecimal = 0x100;
 	- **Postfisso** se segue gli argomenti 
 	- **Infisso** se sta fra gli argomenti 
 - Il **numero di argomenti** *(arità)* 
-- La **precedenza** *(o priorità)* nell’ordine di esecuzione
+- La **precedenza** *(o priorità)* nell’ ordine di esecuzione
 	- *ES:* 
 	  **1+2\*3** viene calcolata come **1+(2\*3)** e non come **(1+2)\*3** 
-- **Associatività**: l’ordine in cui vengono eseguiti operatori della stessa priorità gli operatori possono essere associativi a destra o a sinistrahu
+- **Associatività**: l’ordine in cui vengono eseguiti operatori della stessa priorità gli operatori possono essere associativi a destra o a sinistra
