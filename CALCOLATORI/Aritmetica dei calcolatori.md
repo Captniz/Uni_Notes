@@ -13,9 +13,9 @@ Teoria sottostante: [[Teoria dei calcolatori]]
 > Traduzione di un valore in un dato interpretabile dal sistema con cui interagiamo.
 > Nel caso dei calcolatori parliamo di codificare un qualsiasi tipo di dato in binario.
 
-
-#### Decodifica di interi ( $base\ 10 \to base\ \beta$ )
-Per tradurre un numero in un valore interpretabile dal sistema ( *in base $\beta$, o meglio in base 2* ) basta usare la procedura del cambio base da base 10 a una qualunque base.
+#### Codifica di interi ( $base\ 10 \to base\ \beta$ )
+Per tradurre un numero in un valore interpretabile dal sistema ( 
+*in base $\beta$, o meglio in base 2*) basta usare la procedura del cambio base da base 10 a una qualunque base.
 
 **Esempio con base 2:**
 
@@ -54,6 +54,35 @@ $(101110)_{2}=(?)_{10}$$
 
 $32+8+4+2=46\ \to\ (46)_{10}=(101110)_{2}$
 
+## Rappresentazione ( Codifica )dei numeri reali
+
+Rappresentare esattamente un numero reale $x ∈ R$ **NON E' SEMPRE POSSIBILE**: 
+è il caso dei numeri irrazionali (*es. π*), ovvero numeri reali con un numero **infinito** di cifre “dopo la virgola” **non periodiche**; quindi non rappresentabili con un numero finito di bit.
+
+Esistono due tipi di rappresentazioni di numeri reali:
+- Virgola fissa
+- Virgola mobile
+
+### Rappresentazione in virgola fissa
+In questa rappresentazione, su un numero di $k$ cifre si dedica $k-f$ cifre alla parte **intera** e $f$ cifre a quella **frazionaria**.
+
+La formula per riconvertire a base 10 un numero rappresentato come: 
+
+$c_i=cifra\ in\ posizione\ i$
+$$x_2=c_{k-1}\ c_{k-2}\ \ ...\ \ c_{f}\ \ .\ c_{f-1}\ \ ...\ \ c_{0}$$
+
+è questa:
+$$x_{10} = \sum_{i=0}^{k−1} c_iB^{i−f} = \sum_{i=0}^{k−1} c_iB^i · B^{−f} = (\sum_{i=0}^{k−1} c_iB^i ) · B^{−f}$$
+
+In altre parole vale a convertire il numero in base 10 come se non avesse virgola e poi moltiplichiamo per $B^{−f}$.
+
+Proprietà e vantaggi di questa rappresentazione:
+- **Operazioni semplici**: somme, sottrazioni, moltiplicazioni si svolgono come se fossero numeri interi e in seguito si ri-scala il risultato.
+- **I risultati sono rappresentabili**, le operazioni non introducono errori di approssimazione.
+
+%%TODO: Continua pp. 37%%
+### Rappresentazione in virgola mobile
+
 ## Aritmetica dei dati in binario
 ### Operazioni di base
 **Somma**, **Sottrazione** e di conseguenza **Divisione** e **Moltiplicazione** si svolgono allo stesso modo delle operazioni in base decimale.
@@ -73,6 +102,20 @@ Per rappresentare un numero **binario negativo** in un calcolatore, in cui non p
 > [!attention] Complemento 2
 > **Complemento 2** è attualmente il metodo più diffuso ( *default* ) per la rappresentazione di numeri binari nei calcolatori
 
+Esempi di codifica:
+
+| Base 10 | Mod. e Seg. |  Compl. 1   | **Compl. 2** |
+| :-----: | :---------: | :---------: | :------: |
+|  $-4$   |             |             |  **$100$**   |
+|  $-3$   |    $111$    |    $100$    |  **$101$**   |
+|  $-2$   |    $110$    |    $101$    |  **$110$**   |
+|  $-1$   |    $101$    |    $110$    |  **$111$**   |
+|   $0$   | $100$/$000$ | $000$/$111$ |  **$000$**   |
+|   $1$   |    $001$    |    $001$    |  **$001$**   |
+|   $2$   |    $010$    |    $010$    |  **$010$**   |
+|   $3$   |    $011$    |    $011$    |  **$011$**   |
+
+
 #### Modulo e segno
 Si usano **$k-1$ Bit** per rappresentare il valore del numero e **un singolo Bit per la rappresentazione del segno** ( *Positivo: 0 , Negativo: 1* ).
 
@@ -82,6 +125,52 @@ Questo perché con questa codifica si hanno due rappresentazioni per il numero $
 - $(0\ 0000 ...) Positivo$
 
 #### Complemento 1
+Si rappresentano i numeri negativi facendo il **complemento a 1** del valore assoluto del numero; cioè **si scambiano gli $1$ e $0$ del numero in binario** quando si vuole rappresentare il numero in negativo.
 
-TODO: 
-pp. 21
+Anche in questo caso si applicano le stesse proprietà del modulo e segno:
+- Bit più significativo **rappresenta il segno** ( *Positivo: 0 , Negativo: 1* ).
+- Sono presenti due rappresentazioni del numero 0 
+	- $(1\ 1111 ...) Negativo$
+	- $(0\ 0000 ...) Positivo$
+Inoltre
+- Le operazioni di somma e sottrazioni risultano più facili
+
+##### Somma in complemento 1
+###### Procedura
+1. Sommo i due numeri in binario
+2. Sommo il riporto finale sul risultato ( *Guarda* [esempio pratico](Aritmetica%20dei%20calcolatori#Esempio%20pratico) )
+
+> [!attention] Somma ambivalente
+> Ovviamente la somma vale anche per la sottrazione se rappresentata come:
+> $x + (-y)$ 
+
+> [!danger] Overflow
+> Se **I segni** dei due operandi **sono uguali** ma **opposti** a quello **del risultato**, quest' ultimo non è attendibile, ovvero non è rappresentabile su K Bit, e parliamo di **Overflow** .
+
+###### Esempio pratico:
+$6+(-3)$
+$=$
+$(00110)+(compl(00011))\to(00110)+(11100)$
+$=$
+$(00110)+(11100)\to(00010)\ riporto\ 1$
+$=$
+$somma\ del\ riporto\ \to (00010)+1=(00011)$
+$=$
+$(00011)_2 = (3)_{10}$
+
+#### Complemento a 2
+Rappresento un numero negativo attraverso il complemento 2, cioè:
+1. Faccio il complemento 1 del numero
+2. Sommo 1 al numero
+
+Anche in questo caso si ha che:
+1. Bit più significativo **rappresenta il segno** ( *Positivo: 0 , Negativo: 1* ).
+2. Codifica **unica** dello 0
+3. Somma ancora più semplice
+
+> [!danger] Somma e Overflow in complemento 2 
+> Per sommare in **complemento 2** si seguono i passaggi del complemento 1, **esclusa** la somma del riporto. 
+> 
+> Nel caso ci sia del riporto il numero **NON E' RAPPRESENTABILE** con quel numero di Bit e quindi si tratta di un caso di **Overflow**.
+
+
