@@ -75,4 +75,18 @@ Example: `1+2*3;`
 | :----: | :------: | :------------------: |
 | Concat |   `^`    | String concatenation |
 
+## Function
+
+| Function  | Input -> Output        | Description                                         |
+| --------- | ---------------------- | --------------------------------------------------- |
+| `floor`   | `real -> int`          | Rounds a real to the lower integer                  |
+| `ceil`    | `real -> int`          | Rounds a real to the upper integer                  |
+| `ord`     | `char -> int`          | Returns the ASCII value for the char                |
+| `chr`     | `int -> char`          | Returns the char corresponding to the ASCII value   |
+| `real`    | `int -> real`          | Returns a real from an int                          |
+| `str`     | `char -> string`       | Returns a string from a char                        |
+| `explode` | `string -> list(char)` | Returns a list of chars of the given string         |
+| `implode` | `list(char) -> string` | Returns a string from the given list of characterse |
+
+
 %%TODO: PP. 74 PDF. 1%%
