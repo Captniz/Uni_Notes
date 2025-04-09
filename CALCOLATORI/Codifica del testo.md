@@ -36,10 +36,10 @@ Questo standard per poter rappresentare tutti i caratteri in maniera univoca nec
 
 Questo standard è anche chiamato **UTF-32**.
 
-> [!info] UTF-16
+> [!info ]- UTF-16
 > Versione dell'UNICODE che utilizza uno spazio variabile per la codifica, a partire da **$16$ bit** ( $2$ byte ) 
 > 
 
-> [!info] UTF-8
+> [!info]- UTF-8
 > Uguale all' UTF-16 ma con **$8$ bit** ; inoltre è compatibile con l' ASCII
 
