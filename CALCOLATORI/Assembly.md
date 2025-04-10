@@ -57,17 +57,26 @@ Esistono dei vincoli ( *Architetture* ) applicati a istruzioni e operandi:
 
 ^7b8b5b
 
+> [!Question]- Domanda: Qual'è meglio?
+> Domanda *“filosofica”*.
+> 
+> Sono due tipi di ISA differenti, con obiettivi differenti; come in ogni cosa, gli estremismi non sono mai una buona idea...
+> 
+>Soluzioni *di successo* spesso mescolano i due approcci:
+> - **Intel**: tipico esempio di ISA CISC, tuttavia con idee RISC ( *numero di registri, `cmov`, ecc.* ).
+> - **ARM**: ISA RISC *“pragmatica”* con modalità di indirizzamento più complesse, molte istruzioni ( *anche complesse* ), meno registri ( *$16$* )
+
 #### CISC
-L'obiettivo di questa architettura è fornire <mark class="hltr-blue">istruzioni Assembly più potenti / flessibili / performanti </mark>.
+L'obiettivo di questa architettura è fornire <mark class="hltr-blue">istruzioni Assembly più potenti / flessibili / performanti</mark>.
 
-Infatti le istruzioni [[#Istruzioni Aritmetiche & Logiche|aritmetico/logiche]] in CISC possono avere operandi e destinazione **in memoria**. Spesso tuttavia, esistono limiti o vincoli a questa caratteristica.
+Infatti le istruzioni [[#Istruzioni Aritmetiche & Logiche|aritmetico/logiche]] in CISC possono avere operandi e destinazione **in memoria**, spesso tuttavia, esistono limiti o vincoli a questa caratteristica.
 
->[!example]-
+>[!example]- Esempio
 **Intel**: al massimo un operando o la destinazione in memoria
 
-Inoltre in CISC si hanno <mark class="hltr-orange">molte più istruzioni</mark>, con <mark class="hltr-orange">comportamenti più complessi</mark>, tuttavia queste hanno <mark class="hltr-orange">sintassi meno regolare</mark> ( *Alcune istruzioni hanno destinazione implicita* ).
+Inoltre in CISC si hanno **molte più istruzioni**, con comportamenti più **complessi**, tuttavia queste hanno **sintassi meno regolare** ( *Alcune istruzioni hanno destinazione implicita* ).
 
-La codifica istruzioni, a differenza del RISC, ha **numero variabile di bit**.
+A differenza del RISC, CISC ha <mark class="hltr-orange">numero variabile di bit</mark> per la **codifica**.
 #### RISC
 L'obiettivo di questa architettura è <mark class="hltr-blue">semplificare</mark> al massimo la struttura della CPU.
 
@@ -77,7 +86,6 @@ Le istruzioni [[#Istruzioni Aritmetiche & Logiche|aritmetico/logiche]] in RISC s
 <opcode> <dst>, <arg1>, <arg2>;
 ```
 
-Dove:
 - `opcode` è il nome dell'istruzione ( *codice mnemonico* ).
 - `dst` ( *destination* ) e `arg1` sono **registri**.
 - `arg2` **registro o valore immediato**.  
@@ -85,8 +93,8 @@ Dove:
 Mentre le istruzioni di accesso alla memoria ( *che sono essenzialmente 2* ) sono strutturate ...
 
 ```asm
-load <reg> <mem_addr>
-store <reg> <mem_addr>
+load <reg> <mem_addr>;
+store <reg> <mem_addr>;
 ```
 
 Questa comporta la <mark class="hltr-red">necessità</mark> di **più registri**.
@@ -130,7 +138,7 @@ Questi dati sono <mark class="hltr-orange">Immediati</mark>, <mark class="hltr-b
 ^53308d
 
 Il numero e il nome dei registri a disposizione dell'Assembly, **general-purpose o specializzati**, è definito dall'[[#ISA]] e generalmente ne vengono messi a disposizione un numero compreso tra $4$ e $64$.
-### Istruzioni in assembly
+### Istruzioni in Assembly
 In assembly un istruzione è definita dal codice mnemonico ( *Nome dell'istruzione* ) seguito da eventuali operandi.
 
 Possono essere di tipo:
@@ -193,5 +201,26 @@ Le operazioni **logiche** possono essere separate in due gruppi:
 - <mark class="hltr-red">Necessaria</mark> esecuzione condizionale 
 - Invocazione di **subroutine e ritorno da subroutine** ( *Funzioni* ) che necessitano salvare il valore del PC prima di cambiarlo.
 
+### Accesso alla memoria in Assembly
+Le propietà delle istruzioni che accedono alla memoria dipendono dall'[[#ISA]] e quindi anche dall'[[#Architetture per ISA|architettura]] della **CPU**: 
 
-%%TODO PP 15%%
+• **[[#RISC|RISC]]** ha le istruzioni `load` e `store`.
+• **[[#CISC]]** ha istruzioni generiche per l'accesso alla memoria.
+
+Entrambe tuttavia richiedono una `<memory location>`, cioè un <mark class="hltr-orange">area di memoria</mark> che possiamo fornire in varie modalità: 
+1. Indirizzo di memoria **costante espresso come valore immediato**. 
+2. Indirizzo di memoria **contenuto in un registro**. 
+3. Indirizzo di memoria **ottenuto shiftando** ( *o manipolando* ) **il contenuto di un registro**.
+4. <mark class="hltr-blue">Combinazione dei metodi precedenti.</mark>
+
+Sempre seguendo le loro ideologie le due architetture preferiscono metodi differenti di indirizzamento: 
+
+**RISC** preferisce indirizzamenti più semplici, dato che <mark class="hltr-red">codificare indirizzi assoluti è problematico</mark> a causa delle istruzioni codificate su **numero fisso di bit**.  
+
+**CISC** al contrario opta principalmente per **indirizzi con indice shiftato**, che permette un implementazione più semplice ( *Dal punto di vista del porgrammatore* ) degli array in Assembly.
+
+
+> [!info]- ARM
+> **ARM**, data la sua natura pragmatica, utilizza **indirizzi con indice shiftato** e inoltre implementa **pre/post incremento**, molto utile quando si scorrono gli array.
+
+%%TODO : PP20%%
