@@ -31,6 +31,8 @@ Le caratteristiche principali dell'assembly sono:
 > [!important]- Linguaggio compilato
 > Assembly deve essere poi **compilato** e tradotto in linguaggio macchina per essere interpretabile dal calcolatore, questa compilazione è compito dell' **Assembler**.
 
+^2e347f
+
 ^space
 ### ISA
 Il linguaggio [[#^d87574|Assembly non è globale]]: ogni CPU necessita delle proprie istruzioni e di conseguenza del proprio linguaggio Assembly. L'insieme di queste istruzioni riconosciute dalla CPU si chiama **ISA** ( **I**_nstruction_ **S**_et_ **A**_rchitecture_ ).
@@ -46,6 +48,25 @@ L'ISA <mark class="hltr-red">NON</mark> è una semplice lista di istruzioni, con
 > Un ISA può definire anche <mark class="hltr-orange">più linguaggi assembly</mark> ( *Intel 32/64 bit* ) o <mark class="hltr-orange">più ISA possono essere presenti in una singola CPU</mark> ( *Casi rari* ).
 
 ^space
+### ABI
+Se l'ISA definisce le istruzioni riconosciute dalla CPU e le informazioni fisiche dei registri ( *Numero di registri / Registri general-purpose e non* ), cosa definisce le modalità d'uso di quest'ultimi?
+
+Questo è il compito dell'**ABI** ( **A**_pplication_ **B**_inary_ **I**_nterface_ ), cioè un insieme di <mark class="hltr-orange">convenzioni software</mark> sull'uso dei registri: 
+
+- Quali registri usare per i <mark class="hltr-blue">dati</mark> e quali per gli <mark class="hltr-purple">indirizzi</mark>.
+- Utilizzo dei registri durante l'invocazione di subroutine ( *funzioni* ).
+- Passaggio dei valori dei parametri ed i valori di ritorno.
+- ...
+
+> [!example]- Convenzioni di chiamata
+> Le **convenzioni di chiamata** servono per *“mettere d’accordo”* diversi compilatori, librerie ed altre parti del sistema operativo.
+> Comprendono istruzioni riguardo la chiamata di subroutine come:
+> - Come/dove preservare i parametri ( *stack/registri* ).
+> - Quali registri preservare dopo il termine della routine.
+> - Registri contenenti valori di ritorno.
+> 
+> Queste non vengono specificate dall'ISA, bensì dall'**ABI**.
+
 ### Architetture per ISA
 Esistono dei vincoli ( *Architetture* ) applicati a istruzioni e operandi:
 - **RISC**: ( **R**_educed_ **I**_nstruction_ **S**_et_ **C**_omputer_)
@@ -223,4 +244,3 @@ Sempre seguendo le loro ideologie le due architetture preferiscono metodi differ
 > [!info]- ARM
 > **ARM**, data la sua natura pragmatica, utilizza **indirizzi con indice shiftato** e inoltre implementa **pre/post incremento**, molto utile quando si scorrono gli array.
 
-%%TODO : PP20%%

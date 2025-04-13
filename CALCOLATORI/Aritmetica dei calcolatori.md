@@ -166,8 +166,8 @@ al contrario muovendola a *destra* $E'$ è **negativo**.
 
 > [!example]- Esempio
 > Voglio rappresentare $12.345$ :
-> $(12)_{10}\ .\ (345)_{10} -> (1100)_2\ .\ (010110)_2\ \ \ (approssimato\ a\ 6\ cifre)$
-> $(1100.010110) -> (1^{implicito}.100010110)\cdot2^3$
+> $(12)_{10}\ .\ (345)_{10} \to (1100)_2\ .\ (010110)_2\ \ \ (approssimato\ a\ 6\ cifre)$
+> $(1100.010110) \to (1^{implicito}.100010110)\cdot2^3$
 > - $(100010110)_2=\ mantissa$
 > - $(3)_{10}=\ E'$ 
 ##### Esponente
@@ -222,7 +222,7 @@ Quindi ottenendo tutti i dati per la formula possiamo rappresentare un numero de
  >
 | Segno \| `1 bit` | Mantissa \| `23 bit (Approssimato a 10)` | Esponente \| `8 bit` |
 | :--------------: | :--------------------------------------: | :------------------: |
-| `0` $(Positivo)$ |               $1111100110$               |      `01111011`      |
+| `0` $(Positivo)$ |               `1111100110`               |      `01111011`      |
  
 #### Numeri denormalizzati
 I numeri **denormalizzati** vengono usati per rappresentare numeri particolarmente *piccoli*, a discapito della precisione.
@@ -233,7 +233,7 @@ Inoltre i numeri denormalizzati <mark class="hltr-red">NON HANNO</mark> il primo
 
 #### Massimi, minimi e limiti
 
-| **Categoria**  |  **$E'$**  |   **$M$**   | **$Segno$** |
+| **Categoria**  |  **$E$**   |   **$M$**   | **$Segno$** |
 | :------------- | :--------: | :---------: | :---------: |
 | Normalizzati   | $1 .. 254$ | $qualunque$ |  $0_{or}1$  |
 | Denormalizzati |    $0$     |    $!=0$    |  $0_{or}1$  |
