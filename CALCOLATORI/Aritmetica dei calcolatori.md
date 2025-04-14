@@ -115,6 +115,8 @@ Poi si unisce i due numeri separati dalla virgola.
 > $$(.125)_{10}\to(001)_2$$
 > 
 > Risultato: $(6.125)_{10}$ -> $(110.001)_2$
+
+A differenza della conversione di interi il numero binario ottenuto <mark class="hltr-red">SI LEGGE DALL'ALTO AL BASSO.</mark>
 #### Conversione da binario a decimale
 La formula per ri-convertire a base 10 un numero rappresentato come: 
 
@@ -166,8 +168,8 @@ al contrario muovendola a *destra* $E'$ è **negativo**.
 
 > [!example]- Esempio
 > Voglio rappresentare $12.345$ :
-> $(12)_{10}\ .\ (345)_{10} \to (1100)_2\ .\ (010110)_2\ \ \ (approssimato\ a\ 6\ cifre)$
-> $(1100.010110) \to (1^{implicito}.100010110)\cdot2^3$
+> $$(12)_{10}\ .\ (345)_{10} \to (1100)_2\ .\ (010110)_2\ \ \ (approssimato\ a\ 6\ cifre)$$
+> $$(1100.010110) \to (1^{implicito}.100010110)\cdot2^3$$
 > - $(100010110)_2=\ mantissa$
 > - $(3)_{10}=\ E'$ 
 ##### Esponente
@@ -220,9 +222,9 @@ Quindi ottenendo tutti i dati per la formula possiamo rappresentare un numero de
 > ---
  *4* ) **Memorizzo i dati:**
  >
-| Segno \| `1 bit` | Mantissa \| `23 bit (Approssimato a 10)` | Esponente \| `8 bit` |
+| Segno \| `1 bit` | Esponente \| `8 bit` | Mantissa \| `23 bit (Approssimato a 10)`  |
 | :--------------: | :--------------------------------------: | :------------------: |
-| `0` $(Positivo)$ |               `1111100110`               |      `01111011`      |
+| `0` $(Positivo)$ |             `01111011`                 |      `1111100110`      |
  
 #### Numeri denormalizzati
 I numeri **denormalizzati** vengono usati per rappresentare numeri particolarmente *piccoli*, a discapito della precisione.
@@ -256,7 +258,7 @@ Dato che queste operazioni ci risultano meno naturali dato il cambio di base è 
 
 > [!info]- Left shift
    **Moltiplicare per 10** in base 10 aggiunge uno zero a destra al numero. 
-   La stessa cosa avviene in **binario** quando si **moltiplica per 2  ($(10)_{2}$ )**.
+   La stessa cosa avviene in **binario** quando si **moltiplica per 2  ( $(10)_{2}$ )**.
    >
   Questa operazione è detta **shifting** o **shift a sinistra**.
 ### Numeri negativi nei calcolatori

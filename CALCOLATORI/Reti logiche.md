@@ -172,7 +172,7 @@ Il **PLA** è composto da due sezioni: la prima è composta da **AND** ( *detta 
 
 Il PLA ha due caratteristiche importanti che lo prevengono dal diventare troppo complesso:
 - Ci sono porte logiche **solo** per le configurazioni di input **che producono $1$ in uscita**.
-- Se un *min-termine* è condiviso tra più uscite è possibile <mark class="hltr-yellow">riutilizzarlo</mark>.
+- Se un *min-termine* è condiviso tra più uscite è possibile <mark class="hltr-orange">riutilizzarlo</mark>.
 
 ![[PLA.png | center]]
 
@@ -185,8 +185,8 @@ Per calcolare l'espressione logica equivalente a una tabella di verità basta pr
 - Moltiplicare ( **AND** ) tutti i valori di input della riga
 - Sommare ( **OR** ) tutte le righe con output di valore $1$
 
-#### Esempio
-
+>[!example]- Esempio
+>
 |  A  |  B  |  C  |  **D**  |  **E**  |  **F**  |
 | :-: | :-: | :-: | :-----: | :-----: | :-----: |
 | `0` | `0` | `0` | **`0`** | **`0`** | **`0`** |
@@ -197,10 +197,12 @@ Per calcolare l'espressione logica equivalente a una tabella di verità basta pr
 | `1` | `0` | `1` | **`0`** | **`1`** | **`0`** |
 | `1` | `1` | `0` | **`0`** | **`1`** | **`0`** |
 | `1` | `1` | `1` | **`1`** | **`0`** | **`1`** |
-
+>
 >$D = (\overline{A}\cdot\overline{B}\cdot{C})+(\overline{A}\cdot{B}\cdot\overline{C})+(A\cdot\overline{B}\cdot\overline{C})+(A\cdot{B}\cdot{C})$
-$E=\ ...$
-$F=\ ...$
+>$E=\ ...$
+>$F=\ ...$
+
+
 ### Traduzione a circuito con il PLA
 Una volta che si ottiene la forma canonica la si può tradurre in circuito con il [[#PLA ( Programmable Logic Array )|PLA]].
 

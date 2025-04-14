@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"0b234c6d22ebf657","type":"file","file":"CALCOLATORI/PDF/250319_L7-Operazioni_Assembly.pdf","x":-27,"y":-580,"width":400,"height":400},
+		{"id":"f59b8236c04ad544","type":"file","file":"CALCOLATORI/Architettura RISC-V.md","x":-27,"y":20,"width":400,"height":400},
+		{"id":"12eb419ee5deed06","type":"file","file":"CALCOLATORI/PDF/250326_L10-RISC-V_Esempi.pdf","x":-27,"y":1240,"width":400,"height":400},
+		{"id":"8e096c436d150381","type":"file","file":"CALCOLATORI/PDF/250325_L9-RISC-V_2.pdf","x":1040,"y":640,"width":400,"height":400},
+		{"id":"e2ccc990b23437e9","type":"file","file":"CALCOLATORI/PDF/250320_L8-RISC-V_1.pdf","x":-1080,"y":640,"width":400,"height":400},
+		{"id":"7158dedf03d2f8a0","x":440,"y":640,"width":400,"height":400,"type":"file","file":"CALCOLATORI/Procedure in RISC-V.md"},
+		{"id":"f4f6dc81c602e275","type":"file","file":"CALCOLATORI/Operazioni in RISC-V.md","x":-480,"y":640,"width":400,"height":400}
+	],
+	"edges":[
+		{"id":"632e56077fbcfce5","fromNode":"0b234c6d22ebf657","fromSide":"bottom","toNode":"f59b8236c04ad544","toSide":"top"},
+		{"id":"437c183eb419c2f8","fromNode":"f59b8236c04ad544","fromSide":"bottom","toNode":"f4f6dc81c602e275","toSide":"top"},
+		{"id":"681afe6bb54b14f4","fromNode":"f59b8236c04ad544","fromSide":"bottom","toNode":"7158dedf03d2f8a0","toSide":"top"},
+		{"id":"bb51c0c3dcc3bfc8","fromNode":"8e096c436d150381","fromSide":"left","toNode":"7158dedf03d2f8a0","toSide":"right"},
+		{"id":"06458240c0f0f3cf","fromNode":"e2ccc990b23437e9","fromSide":"right","toNode":"f4f6dc81c602e275","toSide":"left"}
+	]
+}

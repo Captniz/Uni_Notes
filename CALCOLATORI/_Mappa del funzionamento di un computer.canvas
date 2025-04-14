@@ -10,8 +10,8 @@
 		{"id":"99e3bd9d1ecd6de1","type":"text","text":"# Basi del funzionamento di un calcolatore","x":417,"y":200,"width":543,"height":100},
 		{"id":"19b030978e0e2129","type":"file","file":"CALCOLATORI/Assembly.md","x":489,"y":480,"width":400,"height":400},
 		{"id":"913181796fb988b6","type":"file","file":"CALCOLATORI/PDF/250312_L6-Assembly.pdf","x":1200,"y":480,"width":400,"height":400},
-		{"id":"324c70553dc46a65","type":"file","file":"CALCOLATORI/RISC-V.md","x":488,"y":1160,"width":400,"height":400},
-		{"id":"32aadac2d8df1897","type":"file","file":"CALCOLATORI/PDF/250319_L7-Operazioni_Assembly.pdf","x":-236,"y":1160,"width":400,"height":400}
+		{"id":"2571aa46eb08cf56","type":"text","text":"# RISC-V","x":564,"y":1120,"width":250,"height":60},
+		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":489,"y":1220,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"a99ecbee06103f14","fromNode":"676068a9ad0100b5","fromSide":"right","toNode":"c3b0c263757ab7da","toSide":"left"},
@@ -23,7 +23,7 @@
 		{"id":"9763b13c36484230","fromNode":"a6c93a8d81545b5e","fromSide":"bottom","toNode":"99e3bd9d1ecd6de1","toSide":"top"},
 		{"id":"da80707ccea0f31f","fromNode":"99e3bd9d1ecd6de1","fromSide":"bottom","toNode":"19b030978e0e2129","toSide":"top"},
 		{"id":"3b32ca3c6f08329f","fromNode":"913181796fb988b6","fromSide":"left","toNode":"19b030978e0e2129","toSide":"right"},
-		{"id":"4b4b9f883fb0f60d","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"324c70553dc46a65","toSide":"top"},
-		{"id":"a71671146c61f1f8","fromNode":"32aadac2d8df1897","fromSide":"right","toNode":"324c70553dc46a65","toSide":"left"}
+		{"id":"2f455b820a01264e","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"2571aa46eb08cf56","toSide":"top"},
+		{"id":"7464ddb4b5516f7c","fromNode":"2571aa46eb08cf56","fromSide":"bottom","toNode":"68559776044f5d5c","toSide":"top"}
 	]
 }

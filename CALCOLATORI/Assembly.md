@@ -58,8 +58,8 @@ Questo è il compito dell'**ABI** ( **A**_pplication_ **B**_inary_ **I**_nterfac
 - Passaggio dei valori dei parametri ed i valori di ritorno.
 - ...
 
-> [!example]- Convenzioni di chiamata
-> Le **convenzioni di chiamata** servono per *“mettere d’accordo”* diversi compilatori, librerie ed altre parti del sistema operativo.
+> [!info]- Convenzioni di chiamata
+> Le **[[Procedure in RISC-V#Protocollo delle procedure in RISC-V|convenzioni di chiamata]]** servono per *“mettere d’accordo”* diversi compilatori, librerie ed altre parti del sistema operativo.
 > Comprendono istruzioni riguardo la chiamata di subroutine come:
 > - Come/dove preservare i parametri ( *stack/registri* ).
 > - Quali registri preservare dopo il termine della routine.
@@ -142,7 +142,7 @@ Durante l'esecuzione di un istruzione avvengono tre operazioni in sequenza:
 ^99422c
 
 ### Dati di un programma Assembly
-I tipi di dati su cui operano le istruzioni dell' Assembly sono principalmente:
+I tipi di dati su cui operano le istruzioni di Assembly sono principalmente:
 - Operandi **logici o aritmetici**
 - Dati da muovere
 - Indirizzi di memoria
@@ -195,7 +195,7 @@ Queste condizioni vengono espresse come **confronti valori nei registri general-
 > - `set if less than` ( *o simile* ): Confronta due registri general-purpose e setta un terzo registro in base al risultato.
 > - `cmp`: esegue sottrazione settando flag, ma scarta il risultato.
 > 
-^space  
+
 
 #### Istruzioni Aritmetiche & Logiche
 Queste istruzioni sono implementate dalla **ALU** ( **A**_rithmetic_ **L**_ogic_ **U**_nit_ ) e in genere vengono generalmente definite attraverso <mark class="hltr-orange">due operandi</mark> e <mark class="hltr-green">una destinazione</mark> ( *Talvolta implicita* ). 
