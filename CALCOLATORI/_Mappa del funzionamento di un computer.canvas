@@ -11,7 +11,8 @@
 		{"id":"19b030978e0e2129","type":"file","file":"CALCOLATORI/Assembly.md","x":489,"y":480,"width":400,"height":400},
 		{"id":"913181796fb988b6","type":"file","file":"CALCOLATORI/PDF/250312_L6-Assembly.pdf","x":1200,"y":480,"width":400,"height":400},
 		{"id":"2571aa46eb08cf56","type":"text","text":"# RISC-V","x":564,"y":1120,"width":250,"height":60},
-		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":489,"y":1220,"width":400,"height":400}
+		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":489,"y":1220,"width":400,"height":400},
+		{"id":"11b4c7210f668457","x":16,"y":1308,"width":401,"height":112,"type":"text","text":"# TODO PROCEDURE IN RISCV "}
 	],
 	"edges":[
 		{"id":"a99ecbee06103f14","fromNode":"676068a9ad0100b5","fromSide":"right","toNode":"c3b0c263757ab7da","toSide":"left"},
