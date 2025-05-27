@@ -1,0 +1,14 @@
+{
+  "obsidian-dynamic-outline@@dynamic-outline-highlight-font-weight": "var(--font-bold)",
+  "obsidian-dynamic-outline@@dynamic-outline-font-size": "var(--font-small)",
+  "obsidian-dynamic-outline@@dynamic-outline-tab-size": 12,
+  "obsidian-dynamic-outline@@heading-level-styling": "none",
+  "obsidian-dynamic-outline@@hide-button-from-toolbar": false,
+  "obsidian-dynamic-outline@@disable-heading-word-wrap": true,
+  "obsidian-dynamic-outline@@dynamic-outline-window-width": 256,
+  "obsidian-dynamic-outline@@dynamic-outline-opacity": 0.85,
+  "obsidian-dynamic-outline@@dynamic-outline-active-heading-pill-color": "var(--text-normal)",
+  "anuppuccin-theme-settings@@anp-callout-select": "anp-callout-vanilla-normal",
+  "anuppuccin-theme-settings@@anp-callout-fold-position": "1",
+  "chime-theme@@callout-style": "callout-floating"
+}

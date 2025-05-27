@@ -1,0 +1,81 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "TiCode",
+      "TiMathFunction",
+      "TiAbacus",
+      "TiDeviceDesktopAnalytics",
+      "LiFunctionSquare"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [
+      {
+        "rule": "DOCS",
+        "icon": "IbTextAlignLeft",
+        "for": "everything",
+        "order": 0,
+        "color": "#98971a"
+      },
+      {
+        "rule": "PDF",
+        "icon": "FarFilePdf",
+        "for": "everything",
+        "order": 1,
+        "color": "#98971a"
+      },
+      {
+        "rule": "RIASSUNTI",
+        "icon": "IbText2",
+        "for": "everything",
+        "order": 2,
+        "color": "#98971a"
+      },
+      {
+        "rule": "IMAGES",
+        "icon": "LiImage",
+        "for": "everything",
+        "order": 3,
+        "color": "#98971a"
+      }
+    ],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconsBackgroundCheckEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInFrontmatterEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconIdentifier": ":",
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsInLinksEnabled": true,
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "EMBED": "IbClipboardFull",
+  "GESTIONE PROGETTO": "TiSchema",
+  "INFORMATICA": "RiCodeSSlashFill",
+  "MATEMATICA": "TiMath",
+  "SISTEMI": "LiNetwork",
+  "TDP": "RiFileCodeLine",
+  "TELECOMUNICAZIONI": "RiRadarLine",
+  "UMANISTICA": "FasBook",
+  "TEMPLATES": "TiTemplate",
+  "CALCOLATORI": "LiComputer",
+  "FMI": "LiFunctionSquare",
+  "STATISTICA": "TiAbacus",
+  "PRG_FUNZIONALE": "TiMathFunction",
+  "PROGRAMMAZIONE 1": "TiCode",
+  "PROGRAMMAZIONE 2": "TiCode"
+}

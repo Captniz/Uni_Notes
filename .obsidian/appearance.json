@@ -1,0 +1,13 @@
+{
+  "accentColor": "#8da101",
+  "cssTheme": "Spaced Gruvbox",
+  "theme": "obsidian",
+  "monospaceFontFamily": "FiraCode Nerd Font Mono",
+  "textFontFamily": "Inter,FiraCode Nerd Font",
+  "enabledCssSnippets": [
+    "ChangeTag",
+    "CenterImg"
+  ],
+  "baseFontSize": 17,
+  "showRibbon": true
+}

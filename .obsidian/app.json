@@ -1,0 +1,17 @@
+{
+  "csstheme": "Everforest",
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": false,
+  "attachmentFolderPath": "EMBED",
+  "spellcheckLanguages": null,
+  "spellcheck": true,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Tabloid",
+    "landscape": false,
+    "margin": "2",
+    "downscalePercent": 100
+  },
+  "showInlineTitle": true
+}
