@@ -63,8 +63,7 @@ La differenza tra i due sta nel loro uso:
 | È il **registro di stato principale**.<br><br>Contiene **flag di stato**, **informazioni di controllo**, e **modalità del processore**. | È una **vista parziale del CPSR**.<br>    <br>Contiene **solo i flag di stato** usati dall'applicazione:<br>    <br>    - **N (Negative)**<br>        <br>    - **Z (Zero)**<br>        <br>    - **C (Carry)**<br>        <br>    - **V (Overflow)**<br>        <br>    - (In alcune varianti anche **Q**, il saturate flag) |
 
 ##### Flag di comparazione
-Le seguenti comparazioni e corrispettivi [[Intel X86#^d9f687|flag]] sono contenuti nel 
-registro `apsr` :
+Le seguenti comparazioni e corrispettivi [[Intel X86#^d9f687|flag]] sono contenuti nel registro `apsr` e vengono aggiornati dalle operazioni di comparazione e aritmetiche :
 
 
 | **Comparazione** | Descrizione                    | *Flag*                                             |
@@ -141,6 +140,9 @@ Inoltre in ARM si ha la possibilità di **aggiornare il registro base** <mark cl
 > - `RSL` : Right Shift Logical
 > - `ASR` : Arithmetic Shift Right
 > - `ROR` : Rotate Right
+> - ...
+
+^bf9ab8
 
 > [!warning]- Aggiornamento dell'array base
 >
@@ -194,4 +196,153 @@ Inoltre in ARM si ha la possibilità di **aggiornare il registro base** <mark cl
 > >LDR r0, [r1], {+-}r2, LSL #2
 > >```
 
-%%PP.21 L.12%%
+### Istruzioni
+
+A discapito dell'architettura RISC, ARM fornisce **molte** istruzioni.
+
+Tutte le istruzioni in ARM permettono l'esecuzione condizionale attraverso i [[#Flag di comparazione|suffissi delle operazioni di comparazione]].
+
+
+> [!example]- Esempio
+> ```c
+> CMP     r0, r1       ; Confronta r0 e r1
+MOVEQ   r2, #1       ; Se r0 == r1, allora r2 = 1
+MOVNE   r2, #0       ; Se r0 != r1, allora r2 = 0
+> ```
+
+
+#### Sintassi
+La maggior parte delle istruzioni in ARM ha come argomenti un <mark class="hltr-orange">registro di destinazione</mark> e due *operandi*.
+
+Il <mark class="hltr-purple">primo</mark> di questi operandi è **sempre un registro**...
+mentre il <mark class="hltr-blue">secondo</mark> può essere o un **valore immediato** o un **registro** ( *Anche **shiftato** con la [[#^bf9ab8|sintassi]] vista in precedenza*  ).
+
+In ARM i registri vengono scritti senza alcun carattere speciale, mentre le costanti ( *Valore immediato* ) vengono scritti con `#` come prefisso.
+
+#### Istruzioni aritmetiche
+Le istruzioni aritmetiche in ARM possono avare il suffisso `s` ( *Dopo eventuali suffissi di comparazione* ). 
+Lo scopo di questo suffisso è che, **se presente**, aggiorna i flag di [[#Registri Specializzati|CPSR]] con il risultato dell'operazione.
+
+
+| **Istruzione** | Descrizione                                                                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add` / `adc`  | Somma / Somma con carry<br>`r0 = r1 + r2` / `r0 = r1 + r2 + c`                                                                                                                |
+| `sub` / `sbc`  | Sottrazione / Sottrazione con carry<br>`r0 = r1 - r2` / `r0 = r1 - r2 + c -1`                                                                                                 |
+| `rsb` / `rsc`  | Reverse sub. / Reverse sub. con carry<br>`r0 = r2 - r1` / `r0 = r2 - r1 + c -1`<br><br>Lo scopo di queste istruzioni è permettere anche al primo operando di essere shiftato. |
+| `mul` / `mla`  | Moltiplicazione / Moltiplicazione + Somma<br>`r0 = r1 ** r2` / `r0 = r1 ** r2 + r3`                                                                                           |
+| `and`          | AND booleano bit a bit                                                                                                                                                        |
+| `orr`          | OR booleano bit a bit                                                                                                                                                         |
+| `eor`          | XOR booleano bit a bit                                                                                                                                                        |
+| `bic`          | Bit Clear ( $r0 = r1\ and\ not\ r2$ )<br><br>Cioè, ogni 1 in r2 mette a 0 il bit corrispondente in r1.                                                                        |
+
+> [!info]- Rotazione
+> L'operazione di rotazione si può ottenere attraverso lo shift del secondo operatore della somma:
+> ```c
+> add r0, r1, r2, lsl #4 ; r0 = r1 + r2 << 4 
+> add r0, r1, r2, lsl r4 ; r0 = r1 + r2 << r4
+>```
+
+
+> [!info]- Divisione
+> Nella maggior parte di architetture ARM l'operazione di **Divisione** <mark class="hltr-red">NON</mark> viene fornita.
+> 
+> Quest'operazione si ottiene attraverso una funzione simile a questa:
+> ```c
+> int divide ( int A , int B) { 
+> 	int Q = 0; 
+> 	int R = A ; 
+> 	while ( R >= B ) { 
+> 		Q = Q + 1 ; 
+> 		R = R − B ; 
+> 	} 
+> 	return Q;
+>  }
+>```
+
+
+#### Istruzioni di movimento
+
+
+| **Istruzione** | Descrizione                                                                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mov`          | Sposta / Assegna valore a registro<br>`r0 = r1` / `r0 = 10`                                                                                    |
+| `mvn`          | Sposta / Assegna il complemento 1 del valore a registro<br>`r0 = not r1`                                                                       |
+| `b`            | Branch / Salto incondizionato ( *Permette le condizioni attraverso suffissi* )<br>`bne <label>`                                                |
+| `bl`           | Branch and Link / Salta e salva l'indirizzo di ritorno nel **link register** `r14` ( *Usato per l'invocazione di subroutine* )<br>`bl <label>` |
+| `bx`           | Salta a un indirizzo in un registro ( *Equivalente a mov r15, r* )<br>`bx r0`                                                                  |
+
+#### Istruzioni di comparazione
+
+
+| **Istruzione** | Descrizione                                                                              |
+| -------------- | ---------------------------------------------------------------------------------------- |
+| `cmp`          | Setta i flag di comparazione attraverso un operazione di **sottrazione**<br>`cmp r0, r1` |
+| `cmn`          | Setta i flag di comparazione attraverso un operazione di **somma**<br>`cmn r0, r1`       |
+| `tst`          | Setta i flag di comparazione attraverso un operazione di **and**<br>`tst r0, r1`         |
+| `teq`          | Setta i flag di comparazione attraverso un operazione di **xor**<br>`teq r0, r1`         |
+
+#### Istruzioni di accesso alla memoria
+
+| **Istruzione** | Descrizione                                                                       |
+| -------------- | --------------------------------------------------------------------------------- |
+| `ldr`          | Load registro in memoria<br>[[#Metodi di indirizzamento alla memoria\|sintassi]]  |
+| `str`          | Store registro in memoria<br>[[#Metodi di indirizzamento alla memoria\|sintassi]] |
+| `ldm`          | Load multipli registri in memoria<br>`ldm r0, {r1,r2,r3}`                         |
+| `stm`          | Store multipli registri in memoria<br>`stm r0, {r1,r2,r3}`                        |
+
+> [!info]- Versioni per diverse lunghezze
+> Nessun suffisso -> <mark class="hltr-orange">32 bit</mark> :
+> - `ldr`
+> - `str`
+>   
+>   
+> ---
+> 
+> Suffisso `h` -> <mark class="hltr-purple">16 bit</mark> :
+> - `ldrh`
+>  - `strh`
+> 
+> ---
+> 
+> Suffisso `b` -> <mark class="hltr-blue">8 bit</mark> : 
+> - `ldrb`
+> - `strb`
+
+##### Store/Load Multiple
+Queste operazioni consentono di trasferire grandi quantità di dati in modo efficiente.
+
+Vengono utilizzate nel *prologo* e nel *epilogo* di funzioni per salvare e ripristinare i **registri** e **l’indirizzo di ritorno**.
+
+La sintassi di questa istruzione è :
+```c
+ldm<mode>[b] r [!], <register list>
+stm<mode>[b] r , <register list>
+```
+
+
+| **Campo**       | Opzioni              | Descrizione                                                                                                                                                                                                                                                                                                 |
+| --------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mode`          | `ia`                 | *Increment After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r+4`, `r+8`, ...                                                                                                                                                                                                          |
+| ..              | `ib`                 | *Increment Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r+4`, `r+8`, `r+12`, ...                                                                                                                                                                                                      |
+| ..              | `da`                 | *Decrement After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r-4`, `r-8`, ...                                                                                                                                                                                                          |
+| ..              | `db`                 | *Decrement Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r-4`, `r-8`, `r-12`, ...                                                                                                                                                                                                      |
+| `[!]`           | `!/''`               | Se specificato `!` aggiorna `r` ( *Registro base* ) al termine dell' operazione puntando **alla fine** del blocco usato.<br><br>Es.<br>```c<br>stm r0!, {r1,r2}<br>```<br><br>- Salva `r1` in `[r0] = 0x1000`<br>    <br>- Salva `r2` in `[r0+4] = 0x1004`<br>    <br>- Poi aggiorna `r0 = r0 + 8 = 0x1008` |
+| `register-list` | `{r1,r2,r3}/{r1-r3}` | Lista dei registri su cui operari                                                                                                                                                                                                                                                                           |
+
+> [!info]- Alias per lo stack
+> Le opzioni di `mode`, per essere più chiare quando usate quando si opera con lo stack, hanno degli `alias` :
+> 
+> 
+| Suffisso “generico” | Suffisso “semantico” | Contesto tipico                |
+| ------------------- | -------------------- | ------------------------------ |
+| `STMDB`             | `STMFD`              | Push su stack full descending  |
+| `LDMIA`             | `LDMFD`              | Pop da stack full descending   |
+| `STMIA`             | `STMEA`              | Push su stack empty ascending  |
+| `LDMDB`             | `LDMEA`              | Pop da stack empty ascending   |
+| `STMDA`             | `STMED`              | Push su stack empty descending |
+| `STMIB`             | `STMFA`              | Push su stack full ascending   |
+>
+> **`IA`, `IB`, `DA`, `DB`**: sono tecnici e indicano **direzione** e **quando** aggiornare l’indirizzo.    
+> 
+**`FD`, `FA`, `ED`, `EA`**: sono **mnemonici**, usati per indicare chiaramente il tipo di stack o struttura dati.
+

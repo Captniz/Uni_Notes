@@ -3,8 +3,8 @@ Date created: 06-05-25 • 13:50
 tags:
   - Calcolatori
 Related PDF/DOC:
-  - "[[250506_Processore_1.pdf]]"
-Related Pages:
+  - "[[250506_L16-Processore_1.pdf]]"
+Related Pages: 
 ---
 Nell’ esecuzione delle istruzioni, a prescindere dall’[[Assembly#ISA|ISA]], vi sono tratti comuni. Le prime due fasi, per ogni istruzione, sono : 
 - **Prelievo dell’istruzione** dalla memoria. 
