@@ -12,8 +12,10 @@
 		{"id":"913181796fb988b6","type":"file","file":"CALCOLATORI/PDF/250312_L6-Assembly.pdf","x":1200,"y":480,"width":400,"height":400},
 		{"id":"2571aa46eb08cf56","type":"text","text":"# RISC-V","x":12,"y":1120,"width":250,"height":60},
 		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":-63,"y":1220,"width":400,"height":400},
-		{"id":"f22cbe18d3a6e285","x":489,"y":1220,"width":400,"height":400,"type":"file","file":"CALCOLATORI/Intel X86.md"},
-		{"id":"11b4c7210f668457","type":"text","text":"# TODO PROCEDURE IN RISCV ","x":-63,"y":1680,"width":401,"height":112}
+		{"id":"f22cbe18d3a6e285","type":"file","file":"CALCOLATORI/Intel X86.md","x":489,"y":1220,"width":400,"height":400},
+		{"id":"11b4c7210f668457","type":"text","text":"# TODO PROCEDURE IN RISCV ","x":-520,"y":1308,"width":401,"height":112},
+		{"id":"0cf8f7b2cbce59ef","x":489,"y":1880,"width":400,"height":400,"type":"file","file":"CALCOLATORI/Toolchain.md"},
+		{"id":"df3dc32d46d8b74f","x":1040,"y":1220,"width":400,"height":400,"type":"file","file":"CALCOLATORI/ARM.md"}
 	],
 	"edges":[
 		{"id":"a99ecbee06103f14","fromNode":"676068a9ad0100b5","fromSide":"right","toNode":"c3b0c263757ab7da","toSide":"left"},
@@ -27,6 +29,10 @@
 		{"id":"3b32ca3c6f08329f","fromNode":"913181796fb988b6","fromSide":"left","toNode":"19b030978e0e2129","toSide":"right"},
 		{"id":"2f455b820a01264e","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"2571aa46eb08cf56","toSide":"top"},
 		{"id":"7464ddb4b5516f7c","fromNode":"2571aa46eb08cf56","fromSide":"bottom","toNode":"68559776044f5d5c","toSide":"top"},
-		{"id":"2fcf1f93f159d250","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"f22cbe18d3a6e285","toSide":"top"}
+		{"id":"2fcf1f93f159d250","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"f22cbe18d3a6e285","toSide":"top"},
+		{"id":"1aa42b92cbf6b625","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"df3dc32d46d8b74f","toSide":"top"},
+		{"id":"35f243c1ce2f56be","fromNode":"68559776044f5d5c","fromSide":"bottom","toNode":"0cf8f7b2cbce59ef","toSide":"top"},
+		{"id":"3a7d2c4164a2bd60","fromNode":"f22cbe18d3a6e285","fromSide":"bottom","toNode":"0cf8f7b2cbce59ef","toSide":"top"},
+		{"id":"0f848ed436f0e043","fromNode":"df3dc32d46d8b74f","fromSide":"bottom","toNode":"0cf8f7b2cbce59ef","toSide":"top"}
 	]
 }
