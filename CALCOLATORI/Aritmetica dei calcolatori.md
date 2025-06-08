@@ -128,7 +128,23 @@ $c_i=$ *cifra in posizione $i$*
 $$x_{10} = \sum_{i=0}^{k−1} c_iB^{i−f} = \sum_{i=0}^{k−1} c_iB^i · B^{−f} = (\sum_{i=0}^{k−1} c_iB^i ) · B^{−f}$$
 $B=2$ *( Base )*
 
-In altre parole vale a convertire il numero in base 10 come se non avesse virgola e poi moltiplichiamo per $B^{−f}$.
+Dividendolo in passi quindi : 
+1. Converti sia la parte intera che quella frazionaria, in base 10 <mark class="hltr-orange">separatamente</mark>
+2. Dividi la parte decimale per $B^{f}$ ( *$f$ numero di bit della parte frazionaria / $B$=2* ).
+3. Somma i due numeri in base 10.
+
+
+> [!example]- Esempio
+> Sia il numero binario `00011111 01000000` in codifica a virgola fissa **Q8.8** ( *8 bit intero, 8 bit decimale* ), per riconvertirlo....
+> 
+> 1. Converto le due parti separatamente : 
+>    $$(00011111)_2 \to (31)_{10}$$
+>    $$(01000000)_2 \to (64)_{10}$$
+> 2. Divido la parte decimale per $2^8$ :
+>    $$\frac{64}{256} = 0.25$$
+> 3. Sommo le due parti :
+>    $$31 + 0.25 = (31.25)_{10} \to (00011111\ 01000000)_2$$
+
 
 
 ### Rappresentazione in virgola mobile
@@ -161,8 +177,8 @@ La mantissa sarà quindi la <mark class="hltr-red">parte dopo la virgola del num
 
 Con questo calcolo troviamo anche <mark class="hltr-red">$E'$</mark> , cioè quante volte muoviamo la virgola a **destra o a sinistra**: 
 
-quando la muoviamo a *sinistra* $E'$ è **positivo**, 
-al contrario muovendola a *destra* $E'$ è **negativo**.
+- Quando la muoviamo a *sinistra* $E'$ è **positivo**, 
+- Al contrario muovendola a *destra* $E'$ è **negativo**.
 ^negpos
 
 
@@ -182,7 +198,7 @@ al contrario se $E<0$ la virgola si muoverà verso sinistra **riducendo** il num
 > Nel caso in cui i numeri che vogliamo rappresentare siano molto piccoli dobbiamo utilizzare i numeri **[[#Numeri denormalizzati|denormalizzati]]**, di cui parleremo dopo.
 
 L'esponente deve rispettare la formula : 
-$$-2^{e-1}+1 < E' <= 2^{e-1}-1$$
+$$-2^{e-1}+1 < E' \le 2^{e-1}-1$$
 in quanto deve rispettare ciò che abbiamo detto prima riguardo al segno e deve essere possibile rappresentarlo **con $e$ bit di memoria**.
 
 Quindi possiamo ottenere la formula per calcolare l'esponente $E$ come : 
@@ -342,4 +358,8 @@ Anche in questo caso si ha che:
 > [!danger] Somma e Overflow in complemento 2 
 > Per sommare in **complemento 2** si seguono i passaggi del complemento 1, **esclusa** la somma del riporto. 
 > 
-> Nel caso ci sia del riporto il numero **NON E' RAPPRESENTABILE** con quel numero di Bit e quindi si tratta di un caso di **Overflow**.
+> Di norma il riporto finale va ignorato, tuttavia se ci troviamo nella situazione in cui ...
+> - $N_{Pos}+N_{Pos} = N_{Neg}$
+> - $N_{Neg}+N_{Neg} = N_{Pos}$
+> 
+> Allora si ha un caso di **overflow** e il risultato <mark class="hltr-red">NON E' RAPPRESENTABILE</mark> con quel numero di bit.

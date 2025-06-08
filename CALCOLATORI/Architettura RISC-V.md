@@ -114,7 +114,7 @@ ld x9, 8 (x22)
 >- `x22` : Registro contenente l'indirizzo di `A`.
 >- `x21` : Registro contenente `h`.
 >  - `64` : Offset di `A[8]` ( *Ottava Double-word :LiArrowRight: $8\cdot{8}$* ). 
->- `96` : Offset di `A[12]` ( *... :LiArrowRight: $8\cdot{12}$* )
+>- `96` : Offset di `A[12]` ( *... :LiArrowRight: $8\cdot{12}$* ).
 
 > [!important]- Uso efficente della memoria ( *Register spilling* ) 
 Solitamente i programmi contengono più variabili da memorizzare che registri.
@@ -181,7 +181,7 @@ I registri essendo **32** ( *0  ... 31* ) possono essere codificati con **5 bit*
 > ```
 > Come:
 > 
-| FUNCT 7 | RS 2 | RS 1 | FUNCT 3 | RS | CODOP |
+| FUNCT 7 | RS 2 | RS 1 | FUNCT 3 | RD | CODOP |
 | ----------- | ---------------- | ---------------- | ----------- | ----------- | ------------ |
 | 0000000      | 10101 | 10100 | 000       | 01001       | 0110011        |
 > | 0 | 21 | 20 | 0 | 9 | 51 |

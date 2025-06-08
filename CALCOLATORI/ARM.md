@@ -26,7 +26,7 @@ ARM fornisce 16 registri ***General Purpose*** e 2 ***Specializzati***, tutti di
 Questi registri sono **16** e vengono nominati `r0` ... `r15`. 
 
 > [!error] R13 / R14 / R15
-> Anche se categorizziamo `r13` / `r15` / `r15` come *general purpose*, tecnicamente sono <mark class="hltr-red">Specializzati</mark>.
+> Anche se categorizziamo `r13` / `r14` / `r15` come *general purpose*, tecnicamente sono <mark class="hltr-red">Specializzati</mark>.
 > 
 > Questo in quanto : 
 > - `r13` : Spesso usato come **Stack Pointer**.
@@ -320,14 +320,14 @@ stm<mode>[b] r , <register list>
 ```
 
 
-| **Campo**       | Opzioni              | Descrizione                                                                                                                                                                                                                                                                                                 |
-| --------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mode`          | `ia`                 | *Increment After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r+4`, `r+8`, ...                                                                                                                                                                                                          |
-| ..              | `ib`                 | *Increment Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r+4`, `r+8`, `r+12`, ...                                                                                                                                                                                                      |
-| ..              | `da`                 | *Decrement After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r-4`, `r-8`, ...                                                                                                                                                                                                          |
-| ..              | `db`                 | *Decrement Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r-4`, `r-8`, `r-12`, ...                                                                                                                                                                                                      |
-| `[!]`           | `!/''`               | Se specificato `!` aggiorna `r` ( *Registro base* ) al termine dell' operazione puntando **alla fine** del blocco usato.<br><br>Es.<br>```c<br>stm r0!, {r1,r2}<br>```<br><br>- Salva `r1` in `[r0] = 0x1000`<br>    <br>- Salva `r2` in `[r0+4] = 0x1004`<br>    <br>- Poi aggiorna `r0 = r0 + 8 = 0x1008` |
-| `register-list` | `{r1,r2,r3}/{r1-r3}` | Lista dei registri su cui operari                                                                                                                                                                                                                                                                           |
+| **Campo**       | Opzioni              | Descrizione                                                                                                                                                                                                                                                                                        |
+| --------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mode`          | `ia`                 | *Increment After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r+4`, `r+8`, ...                                                                                                                                                                                                 |
+| ..              | `ib`                 | *Increment Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r+4`, `r+8`, `r+12`, ...                                                                                                                                                                                             |
+| ..              | `da`                 | *Decrement After*<br>Registri salvati/recuperati dalle locazioni di memoria `r`, `r-4`, `r-8`, ...                                                                                                                                                                                                 |
+| ..              | `db`                 | *Decrement Before*<br>Registri salvati/recuperati dalle locazioni di memoria `r-4`, `r-8`, `r-12`, ...                                                                                                                                                                                             |
+| `[!]`           | `!/''`               | Se specificato `!` aggiorna `r` ( *Registro base* ) al termine dell' operazione puntando **alla fine** del blocco usato.<br><br>Es.<br>```stm r0!, {r1,r2}```<br><br>- Salva `r1` in `[r0] = 0x1000`<br>    <br>- Salva `r2` in `[r0+4] = 0x1004`<br>    <br>- Poi aggiorna `r0 = r0 + 8 = 0x1008` |
+| `register-list` | `{r1,r2,r3}/{r1-r3}` | Lista dei registri su cui operari                                                                                                                                                                                                                                                                  |
 
 > [!info]- Alias per lo stack
 > Le opzioni di `mode`, per essere più chiare quando usate quando si opera con lo stack, hanno degli `alias` :

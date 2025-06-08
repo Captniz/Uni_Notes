@@ -115,16 +115,16 @@ In questo caso si tratta di `x20 = f`, `x5 = g+h`, `x6 = i+j`.
 4. Salvataggio di `x20` in `sp+0`
 
 
-> [!error] Inutilità della memorizzazione
-> Come abbiamo visto prima, `x5`e `x6` sono registri **[[#^1d2696|Temporanei]], quindi non ha senso salvarli prima nel prologo.**
-
-
 ```c
 esempio_foglia: addi sp, sp, -24 
 				sd x5, 16(sp) 
 				sd x6, 8(sp) 
 				sd x20, 0(sp)
 ```
+
+
+> [!error] Inutilità della memorizzazione
+> Come abbiamo visto prima, `x5`e `x6` sono registri **[[#^1d2696|Temporanei]], quindi non ha senso salvarli prima nel prologo.**
 
 #### Epilogo
 Le funzioni dell'epilogo sono :

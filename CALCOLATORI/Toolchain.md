@@ -156,7 +156,7 @@ Data l'impraticità di linkare molti file `.o` si sono venute a creare le **Libr
 
 Esistono due tipi di librerie :
 - **[[#Librerie statiche|Statiche]]** ( `.a` ) :  Semplici collezioni di file oggetto ( *Il Linker fa tutto il lavoro* ).
-- **[[#Librerie dinamiche|Dinamiche]]** ( *.so* ) : Librerie linkate a tempo di esecuzione ( *Caricamento dinamico* ), sollevando il Linker dall'incarico.
+- **[[#Librerie dinamiche|Dinamiche]]** ( *`.so`* ) : Librerie linkate a tempo di esecuzione ( *Caricamento dinamico* ), sollevando il Linker dall'incarico.
 
 ##### Librerie statiche
 Il linker inserisce nell’eseguibile **tutto** il codice della libreria utilizzato dal programma ( _La libreria non serve più, viene usata solo in questa fase : **Codice autocontenuto**_ ). 
@@ -189,5 +189,10 @@ Quando nel programma viene chiamata una funzione di una libreria, si chiama uno 
 
 La seconda volta che la procedura verrà chiamata, **il processo sarà più semplice**, poichè la procedura ora è già stata caricata.
 
-![[lazy_linking.png| center]]
+---
 
+
+> [!example] Esempio di Lazy Linking
+> ![[lazy_linking.png| center]]
+
+---

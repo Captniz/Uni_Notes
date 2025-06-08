@@ -198,7 +198,7 @@ Queste condizioni vengono espresse come **confronti valori nei registri general-
 
 
 #### Istruzioni Aritmetiche & Logiche
-Queste istruzioni sono implementate dalla **ALU** ( **A**_rithmetic_ **L**_ogic_ **U**_nit_ ) e in genere vengono generalmente definite attraverso <mark class="hltr-orange">due operandi</mark> e <mark class="hltr-green">una destinazione</mark> ( *Talvolta implicita* ). 
+Queste istruzioni sono implementate dalla **ALU** ( **A**_rithmetic_ **L**_ogic_ **U**_nit_ ) e in genere vengono definite attraverso <mark class="hltr-orange">due operandi</mark> e <mark class="hltr-green">una destinazione</mark> ( *Talvolta implicita* ). 
 
 I valori degli operandi e del valore di ritorno possono seguire due filosofie diverse per quanto riguarda la loro **posizione**:
 
@@ -212,12 +212,12 @@ Queste due scelte portano alla scelta della [[#Architetture per ISA|Architettura
 ##### Operazioni Logiche
 Le operazioni **logiche** possono essere separate in due gruppi:
 
-**Movimento dati**:
+**Movimento dati** :
 - Sposta dati tra i registri.
 - Carica *costanti* in registri o in memoria.
 - Carica *dati* dalla memoria ai registri o viceversa.
 
-**Salto / Controllo del flusso** ^4c2e19
+**Salto / Controllo del flusso** :  ^4c2e19
 - Manipolano il contenuto di **[[#^99422c|PC e IP]]**
 - <mark class="hltr-red">Necessaria</mark> esecuzione condizionale 
 - Invocazione di **subroutine e ritorno da subroutine** ( *Funzioni* ) che necessitano salvare il valore del PC prima di cambiarlo.

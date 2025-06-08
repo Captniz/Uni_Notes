@@ -73,7 +73,7 @@ Nel caso dell'Intel X86 si ha che:
 - **Primi 6 argomenti** di una funzione/sub-routine : 
 	- `%rdi` / `%rsi` / `%rdx` / `%rcx` / `%r8` / `%r9`.
 	- Nel caso ne siano necessari altri ( $7 \to n$ ) vengono messi nello stack.
-- **Valori di ritorno** : `%rax` / `rdx`.
+- **Valori di ritorno** : `%rax` / `%rdx`.
 - **Registri preservati** : 
 	- `%rbp` / `%rbx` / `%r12` / `%r13` / `%r14` / `%r15`.
 - **Registri NON preservati** :

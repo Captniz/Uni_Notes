@@ -83,7 +83,7 @@ Grazie alla temporizzazione possiamo risolvere <mark class="hltr-orange">l'indec
 
 >[!example]- Esempio della risoluzione dell'indecidibilità
 >In questo schema...
->![[indecidibile.png]]
+>![[indecidibile.png | center]]
 >Possiamo vedere che :
 >$$s=f(s)$$
 >Quindi $s$ è in uno stato indecidibile in quanto ricorsivo.
