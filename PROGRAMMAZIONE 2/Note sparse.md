@@ -1,0 +1,102 @@
+- Stack e Heap
+	- Stack Memoria allocata dalle funzioni
+	- Heap Memoria allocata dinamicamente
+- Variabili in java
+	- **E' possibile** evocare esplicitamente il Garbage Collector ( *ma non necessario* )
+	- Passaggio alle funzioni
+		- I tipi primitivi sono passati per **copia**
+		- Oggetti e puntatori ( array ) per **reference**
+	- Le variabili `static` sono accessibili senza instanziare la classe, ma soprattutto, se NON FINAL, possono essere modificabili e essenzialmente rese **globali** per la classe
+- Costruttore
+	- Se non viene specificato nessun costruttore, il compilatore inserisce un **costruttore di default** (senza parametri) che: 
+		- Alloca lo spazio per gli attributi di tipo primitivo e li inizializza al valore di default
+		- Alloca lo spazio per i riferimenti agli attributi di tipo definito dall’utente, e li inizializza a null
+	- Se **viene specificato un costruttore non di default** il costruttore di default **NON** è più dispondibile ( *A meno che non sia specificato dall'utente* )
+- Firma
+	- La **firma di un metodo** è composta da: `<Nome del metodo>`(`<Lista (ordine e tipo) dei parametri>`)
+- Overloading
+	- L’**overloading** avviene **all’interno della stessa classe** e consiste nell’avere **più metodi con lo stesso nome ma firme diverse**
+	- Avviene **durante la compilazione** (compile-time polymorphism).
+	- Può cambiare anche il tipo di ritorno, ma **non basta** per distinguere un overload ( *non cambia la firma* ).
+- Overriding
+	- L’**overriding** avviene quando una **classe figlia ridefinisce un metodo ereditato** da una classe padre, **mantenendo la stessa firma**.
+	- Avviene **durante l’esecuzione** (runtime polymorphism).
+	- La notazione `@Override` è opzionale ma aumenta chiarezza e sicurezza
+- Visibilità
+	- **public** : visibili a tutti
+	- **protected** : visibili alle classi dichiarate nel package di C e alle sottoclassi di C, anche se definite in altro package
+	- ***«package»*** (**nessun modificatore specificato**) : visibili solo alle classi dichiarate nel package di C
+	- **private** : visibili solo all’interno della classe in cui sono definiti e non visibili nelle sottoclassi
+- Ereditarietà
+	- Se crea una sottoclasse con un costruttore di default ( *Non specifichiamo il costruttore* ) allore anche la superclasse deve avere un costruttore di default
+	- Altrimenti si deve invocare il costruttore della supercallse esplicitamente con `super`
+- Polimorfismo
+	-  Overloading
+		- L’**overloading** avviene **all’interno della stessa classe** e consiste nell’avere **più metodi con lo stesso nome ma firme diverse**
+		- Avviene **durante la compilazione** (compile-time polymorphism).
+		- Può cambiare anche il tipo di ritorno, ma **non basta** per distinguere un overload ( *non cambia la firma* ).
+	- Overriding
+		- L’**overriding** avviene quando una **classe figlia ridefinisce un metodo ereditato** da una classe padre, **mantenendo la stessa firma**.
+		- Avviene **durante l’esecuzione** (runtime polymorphism).
+		- La notazione `@Override` è opzionale ma aumenta chiarezza e sicurezza
+	- Polim. di sottotipo
+		- Una variabile di tipo riferimento T può riferirsi ad un qualsiasi oggetto il cui tipo sia T o un suo sottotipo
+		- Il tipo di una variabile dichiarata di tipo X ( X è classe con sottoclassi Y e Z ) ma NON inizializzata è deciso a **runtime** 
+			- Per questo si distinguono i tipi **statici** e **dianamici** ( Tipo a compilazione e runtime )
+			- Il tipo dinamico è sempre lo stesso o sottotipo di quello statico
+		- Quando si invoca un metodo di X, il metodo scelto dipende dal tipo dinamico, e viene deciso a runtime in questo modo:
+			- Si cerca all’interno della classe X (tipo statico di o) il metodo m con la firma più simile all’invocazione
+			- Si guarda al tipo dinamico Y di o; se è un sottotipo di X, si deve verificare se ridefinisce (override) m. Se sì, si usa l’implementazione di Y, altrimenti quella di X
+- Casting
+	- È possibile forzare la conversione da un tipo riferimento T ad un sottotipo T1 purché il tipo **dinamico** dell’oggetto convertito sia un sottotipo di T1 
+	- ```Object o = new AutomobileElettrica(); 
+	  Automobile a = o; // errato, Object non è sottotipo di Automobile 
+	  Automobile a = (Automobile) o; // corretto (casting)```
+	- Questa conversione esplicita viene chiamata **downcast**; quella implicita consentita dal polimorfismo viene chiamata **upcast**
+- Instanceof
+	- keyword che fornisce il tipo dinamico di un oggetto
+- Interfacce
+	- Un’interfaccia è una collezione di firme di metodi Può essere vista come una classe senza attributi, i cui metodi sono tutti pubblici ed astratti
+	- Da Java 8 è possibile avere «default methods» con un corpo
+	- Talvolta si usa il solo nome (no metodi) per «etichettare» le classi con speciali proprietà (tagging interfaces)
+	- Una interfaccia o una classe può ereditare da una o più interfacce
+	- Una interfaccia può essere utilizzata per definire il tipo di una variabile 
+		- Valgono le regole del polimorfismo: tale variabile potrà riferirsi ad un qualsiasi oggetto che implementi l’interfaccia
+- Generics
+	- Durante la dichiarazione ( *Nell uso* ) i tipi sono richesti, mentre nell iniziallizazione possono essere omessi e inferiti dal compilatore
+		- `Pair<String,Double> p = new Pair<>("PI", 3.14);`
+	- Esempio di metodo generico:
+		- `public static <E> Insieme<E> unione(Insieme<E> s1, Insieme<E> s2)`
+		- Dove  :
+			- `public static <E> ...` è **Il generics** con cui lavorerà il metodo
+			- `Insieme<E>` è il tipo di **return**, che in questo caso implementa a sua volta un generics
+			- `Insieme<E> s1, Insieme<E> s2` **Parametri** come il return
+	- I generics sono implementati mediante **type erasure**, cioè l’informazione sui parametri tipo esiste solo a **compilation** time e viene eliminata dopo i controlli statici e dopo aver inserito gli opportuni cast per mantenere i vincoli sul tipo
+	- Per definire strutture dati generiche e allo stesso tempo polimorfe usiamo le **wildcard**
+		- Per risolvere :
+		- `Group<Object> g = new Group<Student>();` che darebbe errore
+		- usiamo :
+		- `Group<?> g = new Group<Student>();` o
+		- `Group<? extends Persona & Scolaro> g = new Group<Student>();` per limitare le wildcard
+	- Le wildcard limitate si possono usare anche per definire metodi/classi con generics che lo richiedono:
+		- `class Squadra<T extends Atleta> { ... }`
+	- Non si possono usare i generics con `instanceof`
+- Collections
+- Iterators
+- Comparable
+	- L’interfaccia `Comparable<T>` consente di definire un ordinamento totale (“ordinamento naturale”) fra gli oggetti che la implementano
+	- Definisce un unico metodo `int compareTo(T o)` che ritorna
+		- un intero negativo se this è minore di o 
+		- un intero positivo se this è maggiore di o 
+		- 0 se this è uguale a o
+- Comparator
+	- è la controparte di Comparable, questa non è applicata all'oggetto ma è un oggetto a se che copara altri due oggetti
+	- Scelta obbligata se si vuole confrontare con un criterio diverso dall’«ordinamento naturale» rappresentato da Comparable
+	- Fornisce il metodo `int compare(T o1, T o2)`
+- Equal e ==
+	- **.equals()** compara la struttura dell'oggetto, in particolare se sono letteralmente **lo stesso**
+	- **\=\=** controlla se l'oggetto puntato in memoria è lo stesso
+	- Questo significa che solitamente \=\= non funziona per gli oggetti poichè non ne vede il contenuto, mentre funziona bene per i tipi primitivi
+	- Spesso l'override di **equals** è necessario
+
+%TODO eccezzioni e lambda e foglio di appunti per pratico%
