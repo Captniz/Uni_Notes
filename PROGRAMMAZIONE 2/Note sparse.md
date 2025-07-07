@@ -26,7 +26,7 @@
 	- **public** : visibili a tutti
 	- **protected** : visibili alle classi dichiarate nel package di C e alle sottoclassi di C, anche se definite in altro package
 	- ***«package»*** (**nessun modificatore specificato**) : visibili solo alle classi dichiarate nel package di C
-	- **private** : visibili solo all’interno della classe in cui sono definiti e non visibili nelle sottoclassi
+	- **private** : visibili solo all’interno della classe in cui sono definiti e non visibili nelle sottoclassi (*tuttavia sono visibili nelle CLASSI INNESTATE*)
 - Ereditarietà
 	- Se crea una sottoclasse con un costruttore di default ( *Non specifichiamo il costruttore* ) allore anche la superclasse deve avere un costruttore di default
 	- Altrimenti si deve invocare il costruttore della supercallse esplicitamente con `super`
@@ -98,5 +98,25 @@
 	- **\=\=** controlla se l'oggetto puntato in memoria è lo stesso
 	- Questo significa che solitamente \=\= non funziona per gli oggetti poichè non ne vede il contenuto, mentre funziona bene per i tipi primitivi
 	- Spesso l'override di **equals** è necessario
-
-%TODO eccezzioni e lambda e foglio di appunti per pratico%
+- Exceptions
+	- Lanciate in automatico, manualmente con `throw` e dalle funzioni con `throws`
+	- Possono essere propagate a funzioni superiori con `throws` o gestite con `try..catch..finally`
+		- Si possono avere più catch per differenti errori o sottoclassi e classi padre
+	- Sono oggetti e usano l'ereditarietà per dividersi in sottocalssi
+		- Esistono gli **Errors** (*figli di thowable*) che sono errori seri non gestiti dai programmi
+	- Tutti tipi di eccezioni sono figlie di **Exception** e sono tutte simili a parte le **RuntimeException**
+		- Le **RuntimeException** sono errori non gravi generati a runtime quindi **NON** richiedono di essere gestite per forza.
+- Lambda expressions
+	- Possono sostituire le classi anonime
+	- Sintassi
+		- (MouseEvent event) -> { System.out.print("Entered"); }
+	- Possono inferire le interfacce funzionali ( cioè dove è richiesta un interfaccia che implementa un metodo possono essere usate senza fare una classe.) Solo se:
+		- L'interfaccia ha un **SINGOLO** metodo astratto da implementare
+		- I parametri e il ritorno della lamda e dela funzione corripondono
+- Cloning
+	- Funzione clone()
+		- *Creates and returns a copy of this object. The precise meaning of "copy" may depend on the class of the object.*
+	- Solitamente `x==x.clone()` è falso mentre `x.equals(x.clone())` è vera.
+	- Due tipi di copie
+		- **Shallow copy** gli attributi del clone puntano in memoria agli stessi dell'originale ( modificare uno modifica l'altro)
+		- **Deep copy** gli attributi vengono creati nuovamente con nuovi oggetti, quindi in memoria sono diversi da quelli originali
