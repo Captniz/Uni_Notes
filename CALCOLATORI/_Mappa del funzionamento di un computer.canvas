@@ -1,34 +1,29 @@
 {
 	"nodes":[
 		{"id":"c3b0c263757ab7da","type":"file","file":"CALCOLATORI/Aritmetica dei calcolatori.md","x":-436,"y":-200,"width":400,"height":400},
-		{"id":"676068a9ad0100b5","type":"file","file":"CALCOLATORI/PDF/250226_L2-3-AritmeticaCalcolatori.pdf","x":-1160,"y":-200,"width":400,"height":400},
-		{"id":"6428a77a9018c33d","type":"file","file":"CALCOLATORI/PDF/250306_L4-CodificaTesto.pdf","x":-1160,"y":-720,"width":400,"height":400},
 		{"id":"aac235944a5fae6a","type":"file","file":"CALCOLATORI/Codifica del testo.md","x":-436,"y":-720,"width":400,"height":400},
 		{"id":"f2c7b9d6f986866e","type":"text","text":"# Dati su un calcolatore","x":120,"y":-280,"width":433,"height":50},
 		{"id":"a6c93a8d81545b5e","type":"file","file":"CALCOLATORI/Reti logiche.md","x":760,"y":-455,"width":400,"height":400},
-		{"id":"1eb79432caefe288","type":"file","file":"CALCOLATORI/PDF/250311_L5-RetiLogiche.pdf","x":1480,"y":-455,"width":400,"height":400},
 		{"id":"99e3bd9d1ecd6de1","type":"text","text":"# Basi del funzionamento di un calcolatore","x":417,"y":200,"width":543,"height":100},
 		{"id":"19b030978e0e2129","type":"file","file":"CALCOLATORI/Assembly.md","x":489,"y":480,"width":400,"height":400},
-		{"id":"913181796fb988b6","type":"file","file":"CALCOLATORI/PDF/250312_L6-Assembly.pdf","x":1200,"y":480,"width":400,"height":400},
-		{"id":"2571aa46eb08cf56","type":"text","text":"# RISC-V","x":12,"y":1120,"width":250,"height":60},
-		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":-63,"y":1220,"width":400,"height":400},
+		{"id":"68559776044f5d5c","type":"file","file":"CALCOLATORI/RISC-V.canvas","x":-63,"y":1280,"width":400,"height":340},
 		{"id":"f22cbe18d3a6e285","type":"file","file":"CALCOLATORI/Intel X86.md","x":489,"y":1220,"width":400,"height":400},
-		{"id":"11b4c7210f668457","type":"text","text":"# TODO PROCEDURE IN RISCV ","x":-520,"y":1308,"width":401,"height":112},
 		{"id":"0cf8f7b2cbce59ef","type":"file","file":"CALCOLATORI/Toolchain.md","x":489,"y":1880,"width":400,"height":400},
 		{"id":"df3dc32d46d8b74f","type":"file","file":"CALCOLATORI/ARM.md","x":1040,"y":1220,"width":400,"height":400},
 		{"id":"02c7128fe59d177c","type":"file","file":"CALCOLATORI/Il Processore.md","x":489,"y":2440,"width":400,"height":400},
-		{"id":"113cd33d8098884c","x":489,"y":3000,"width":400,"height":400,"type":"file","file":"CALCOLATORI/Pipeline.md"}
+		{"id":"113cd33d8098884c","type":"file","file":"CALCOLATORI/Pipeline.md","x":489,"y":3000,"width":400,"height":400},
+		{"id":"aae0c841b29e5cfa","type":"file","file":"CALCOLATORI/PDF/250511_L20-GerarchiaDiMemoria_2.pdf","x":-45,"y":2720,"width":400,"height":400},
+		{"id":"bff95dd11eb392cf","type":"file","file":"CALCOLATORI/La gerarchia di memoria.md","x":-45,"y":2200,"width":400,"height":400},
+		{"id":"f642401038a0288e","type":"file","file":"CALCOLATORI/PDF/250512_L21-IO_1.pdf","x":1000,"y":2200,"width":400,"height":400},
+		{"id":"118ff7bb9a3254ac","type":"file","file":"CALCOLATORI/PDF/250512_L22-IO_2.pdf","x":1000,"y":2720,"width":400,"height":400},
+		{"id":"2571aa46eb08cf56","type":"text","text":"# RISC-V","x":-63,"y":1220,"width":400,"height":60}
 	],
 	"edges":[
-		{"id":"a99ecbee06103f14","fromNode":"676068a9ad0100b5","fromSide":"right","toNode":"c3b0c263757ab7da","toSide":"left"},
-		{"id":"dab4b540367b6bf6","fromNode":"6428a77a9018c33d","fromSide":"right","toNode":"aac235944a5fae6a","toSide":"left"},
 		{"id":"5404d6299e846ebe","fromNode":"aac235944a5fae6a","fromSide":"right","toNode":"f2c7b9d6f986866e","toSide":"left"},
 		{"id":"f0c37263811a6da9","fromNode":"c3b0c263757ab7da","fromSide":"right","toNode":"f2c7b9d6f986866e","toSide":"left"},
-		{"id":"9ca7b9e1cea18a67","fromNode":"1eb79432caefe288","fromSide":"left","toNode":"a6c93a8d81545b5e","toSide":"right"},
 		{"id":"0cabd8ef5608979b","fromNode":"f2c7b9d6f986866e","fromSide":"bottom","toNode":"99e3bd9d1ecd6de1","toSide":"top"},
 		{"id":"9763b13c36484230","fromNode":"a6c93a8d81545b5e","fromSide":"bottom","toNode":"99e3bd9d1ecd6de1","toSide":"top"},
 		{"id":"da80707ccea0f31f","fromNode":"99e3bd9d1ecd6de1","fromSide":"bottom","toNode":"19b030978e0e2129","toSide":"top"},
-		{"id":"3b32ca3c6f08329f","fromNode":"913181796fb988b6","fromSide":"left","toNode":"19b030978e0e2129","toSide":"right"},
 		{"id":"2f455b820a01264e","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"2571aa46eb08cf56","toSide":"top"},
 		{"id":"7464ddb4b5516f7c","fromNode":"2571aa46eb08cf56","fromSide":"bottom","toNode":"68559776044f5d5c","toSide":"top"},
 		{"id":"2fcf1f93f159d250","fromNode":"19b030978e0e2129","fromSide":"bottom","toNode":"f22cbe18d3a6e285","toSide":"top"},
@@ -37,6 +32,10 @@
 		{"id":"3a7d2c4164a2bd60","fromNode":"f22cbe18d3a6e285","fromSide":"bottom","toNode":"0cf8f7b2cbce59ef","toSide":"top"},
 		{"id":"0f848ed436f0e043","fromNode":"df3dc32d46d8b74f","fromSide":"bottom","toNode":"0cf8f7b2cbce59ef","toSide":"top"},
 		{"id":"691d61636028381e","fromNode":"0cf8f7b2cbce59ef","fromSide":"bottom","toNode":"02c7128fe59d177c","toSide":"top"},
-		{"id":"5260404d33e48722","fromNode":"02c7128fe59d177c","fromSide":"bottom","toNode":"113cd33d8098884c","toSide":"top"}
+		{"id":"5260404d33e48722","fromNode":"02c7128fe59d177c","fromSide":"bottom","toNode":"113cd33d8098884c","toSide":"top"},
+		{"id":"e519d80ac22afaa3","fromNode":"02c7128fe59d177c","fromSide":"left","toNode":"aae0c841b29e5cfa","toSide":"right"},
+		{"id":"3f62cf9e15bc1ab0","fromNode":"02c7128fe59d177c","fromSide":"left","toNode":"bff95dd11eb392cf","toSide":"right"},
+		{"id":"8f8993fd156fbc8b","fromNode":"02c7128fe59d177c","fromSide":"right","toNode":"118ff7bb9a3254ac","toSide":"left"},
+		{"id":"d196cc6bd6fd0c3a","fromNode":"02c7128fe59d177c","fromSide":"right","toNode":"f642401038a0288e","toSide":"left"}
 	]
 }
