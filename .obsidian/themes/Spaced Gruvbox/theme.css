@@ -11,7 +11,6 @@
 	font-style: normal;
 	font-display: swap;
 }
-
 /* iA Writer Quattro S */
 @font-face {
 	font-family: "iA Writer Quattro S";
@@ -57,6 +56,7 @@
 	font-display: swap;
 }
 
+/*Vars*/
 :root {
 	--dark0-hard_x: 29, 32, 33; /* #1d2021 */
 	--dark0-hard: rgb(var(--dark0-hard_x));
@@ -171,7 +171,7 @@ body {
 	--border-width-alt: 1px;
 	--input-height: 32px;
 	--header-height: 40px;
-	--accent-h: 12; /* --faded-red #9d0006 */
+	--accent-h: 12;
 	--accent-s: 107%;
 	--accent-l: 32%;
 
@@ -191,7 +191,7 @@ body {
 
 	--checkbox-radius: 0;
 
-	/* --list-indent:                    2em; */
+	/*--list-indent: 2em; */
 
 	--embed-border-left: 6px double var(--interactive-accent);
 	line-height: var(--line-height);
@@ -990,6 +990,34 @@ body {
 .math-inline > mjx-container[jax="CHTML"] {
 	font-size: 110%;
 }
-.cm-s-obsidian span.cm-highlight, .markdown-rendered mark {
-    color: inherit;
+.cm-s-obsidian span.cm-highlight,
+.markdown-rendered mark {
+	color: inherit;
+}
+
+.markdown-preview-view blockquote {
+	border-inline-start: 0.2em solid var(--dark4) !important;
+	margin-inline-start: 0;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-preview-view blockquote {
+	border-inline-start: 0.2em solid var(--dark4) !important;
+	margin-inline-start: 0;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
+.markdown-source-view.mod-cm6 .cm-blockquote-border:before {
+	/* keep the pseudo element, but change the border color/size */
+	content: "\200b";
+	display: block;
+	width: 0.2em; /* the pseudo-element is a 1px slot where the border is drawn */
+	border-inline-start: 0.2em solid var(--dark4) !important;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	pointer-events: none;
 }
