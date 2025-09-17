@@ -1,3 +1,5 @@
+/*########################### FONTS*/
+
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&family=Xanh+Mono:ital@0;1&display=swap");
 
 @font-face /* iA Writer Mono V */ {
@@ -56,7 +58,7 @@
 	font-display: swap;
 }
 
-/*Vars*/
+/*########################### COLORS & SETTINGS*/
 :root {
 	--dark0-hard_x: 29, 32, 33; /* #1d2021 */
 	--dark0-hard: rgb(var(--dark0-hard_x));
@@ -137,6 +139,44 @@
 }
 
 body {
+	/*Callout Vars*/
+	--aside-background: transparent;
+	--aside-background-hover: var(--background-modifier-hover);
+	--aside-text-color: var(--text-muted);
+	--aside-border-color: var(--background-modifier-border);
+	--callout-border-width: 1px;
+	--callout-border-opacity: 0.4;
+	--callout-default: var(--bright-blue_x);
+	--callout-note: var(--bright-blue_x);
+	--callout-info: var(--bright-blue_x);
+	--callout-todo: var(--bright-blue_x);
+	--callout-summary: var(--neutral-blue_x);
+	--callout-important: var(--neutral-blue_x);
+	--callout-tip: var(--neutral-blue_x);
+	--callout-success: var(--neutral-green_x);
+	--callout-warning: var(--neutral-orange_x);
+	--callout-fail: var(--neutral-red_x);
+	--callout-error: var(--neutral-red_x);
+	--callout-bug: var(--neutral-red_x);
+	--callout-question: var(--neutral-purple_x);
+	--callout-example: var(--neutral-purple_x);
+	--callout-quote: var(--gray_x);
+
+	/*Text Impagination Vars*/
+	--line-height: 1.5;
+	--line-width: 40rem; /* Maximum characters per line */
+	--max-width: 88%; /* Amount of padding around the text, use 90% for narrower padding */
+	--icon-muted: 0.5;
+	--border-width: 1px;
+	--border-width-alt: 1px;
+	--header-height: 40px;
+	--input-height: 32px;
+	--checkbox-radius: 0;
+	--tab-font-weight: 600;
+	/*--list-indent: 2em; */
+	line-height: var(--line-height);
+
+	/*Normal Text Vars*/
 	--font-text-theme: "iA Writer Quattro S";
 	--font-interface-theme: var(--font-text-theme);
 	--font-editor-theme: "iA Writer Mono V", var(--font-text-theme),
@@ -147,8 +187,14 @@ body {
 	--font-small: 0.813em;
 	--font-smaller: 0.688em;
 	--font-smallest: 0.625em;
+	--normal-weight: 500;
+
+	/*Format Vars*/
+	/*############# Code*/
 	--code-size: var(--font-small);
 	--code-normal: var(--bright-blue);
+
+	/*############# Headings*/
 	--h1: 1.8em;
 	--h2: 1.55em;
 	--h3: 1.35em;
@@ -161,40 +207,33 @@ body {
 	--h4-weight: 550;
 	--h5-weight: 550;
 	--h6-weight: 550;
-	--normal-weight: 500;
-	--bold-weight: 620;
-	--line-width: 40rem; /* Maximum characters per line */
-	--line-height: 1.5;
-	--max-width: 88%; /* Amount of padding around the text, use 90% for narrower padding */
-	--icon-muted: 0.5;
-	--border-width: 1px;
-	--border-width-alt: 1px;
-	--input-height: 32px;
-	--header-height: 40px;
+
+	/*############# Italic/Bold/...*/
+	--bold-weight: 600;
 	--accent-h: 12;
 	--accent-s: 107%;
 	--accent-l: 32%;
 
+	/*############# Links*/
 	--link-decoration: underline;
 	--link-decoration-hover: none;
 	--link-external-decoration: underline;
 	--link-external-decoration-hover: none;
 
+	/*############# Tags*/
 	--tag-decoration: none;
 	--tag-decoration-hover: underline;
 	--tag-padding-x: 0.5em;
 	--tag-padding-y: 0.2em;
 	--tag-radius: 0.5em;
 
-	--tab-font-weight: 600;
-	--bold-weight: 600;
-
-	--checkbox-radius: 0;
-
-	/*--list-indent: 2em; */
-
+	/*############# Embeds*/
 	--embed-border-left: 6px double var(--interactive-accent);
-	line-height: var(--line-height);
+
+	/*############# Tables*/
+	--table-header-size: var(--font-small);
+	--table-header-weight: var(--font-semibold);
+	--table-header-color: var(--text-normal);
 }
 
 .theme-dark {
@@ -309,6 +348,7 @@ body {
 }
 
 .theme-light {
+	/* TODO
 	--color-red-rgb: var(--neutral-red_x);
 	--color-red: var(--neutral-red);
 	--color-purple-rgb: var(--neutral-purple_x);
@@ -408,8 +448,10 @@ body {
 	--dataview-value-background: rgba(var(--neutral-green_x), 0.2);
 
 	--tab-text-color-focused-active: var(--neutral-yellow);
-	--tab-text-color-focused-active-current: var(--bright-red);
+	--tab-text-color-focused-active-current: var(--bright-red);*/
 }
+
+/*########################### TABLES*/
 
 table {
 	border: 1px solid var(--background-secondary) !important;
@@ -431,6 +473,11 @@ td {
 	border-bottom: 1px solid var(--background-secondary) !important;
 }
 
+/* FIX: margin-top funkiness present since Obsidian 1.1+ */
+.markdown-source-view table {
+	margin-top: 0;
+}
+
 .markdown-rendered tbody tr:nth-child(even) {
 	background-color: var(--table-row-even-background) !important;
 }
@@ -443,6 +490,28 @@ td {
 .markdown-rendered tbody tr:nth-child(odd):hover {
 	background-color: var(--table-row-background-hover) !important;
 }
+
+.cm-embed-block.markdown-rendered .block-language-dataview,
+.markdown-rendered table,
+.markdown-rendered .table-view-table {
+	margin-bottom: 1.5em;
+	width: 100%;
+}
+.cm-embed-block.markdown-rendered .block-language-dataview th,
+.cm-embed-block.markdown-rendered .block-language-dataview td,
+.markdown-rendered table th,
+.markdown-rendered table td,
+.markdown-rendered .table-view-table th,
+.markdown-rendered .table-view-table td {
+	padding: 0.6em 1.8em 0.6em 1.8em;
+}
+.cm-embed-block.markdown-rendered .block-language-dataview td,
+.markdown-rendered table td,
+.markdown-rendered .table-view-table td {
+	font-size: var(--font-small);
+}
+
+/*########################### MISC*/
 
 .markdown-rendered mark {
 	background-color: var(--text-highlight-bg);
@@ -491,16 +560,18 @@ pre[class*="language-"] {
 	color: var(--text-accent-color) !important;
 }
 
-/* Keep highlight/marks the same between viewer and editor. */
-.cm-highlight {
-	color: var(--text-highlight-fg) !important;
-}
-
 /* Keep inline code the same between viewer and editor. */
 .cm-inline-code {
 	border-radius: var(--radius-s);
 	font-size: var(--code-size);
 	padding: 0.1em 0.25em;
+}
+
+/*########################### MERMAID, CALENDAR, DATAVIEW, NAVIGATION, ETC.*/
+
+/* Keep highlight/marks the same between viewer and editor. */
+.cm-highlight {
+	color: var(--text-highlight-fg) !important;
 }
 
 .mermaid .note {
@@ -583,31 +654,6 @@ pre[class*="language-"] {
 	color: var(--bright-red);
 }
 
-body {
-	--callout-border-width: 1px;
-	--callout-border-opacity: 0.4;
-	/* Order as defined in app.css */
-	--callout-default: var(--bright-blue_x);
-	--callout-note: var(--bright-blue_x);
-	--callout-info: var(--bright-blue_x);
-	--callout-todo: var(--bright-blue_x);
-	--callout-summary: var(--neutral-blue_x);
-	--callout-important: var(--neutral-blue_x);
-	--callout-tip: var(--neutral-blue_x);
-	--callout-success: var(--neutral-green_x);
-	--callout-warning: var(--neutral-orange_x);
-	--callout-fail: var(--neutral-red_x);
-	--callout-error: var(--neutral-red_x);
-	--callout-bug: var(--neutral-red_x);
-	--callout-question: var(--neutral-purple_x);
-	--callout-example: var(--neutral-purple_x);
-	--callout-quote: var(--gray_x);
-}
-
-.callout {
-	background-color: rgba(var(--callout-color), 0.2);
-}
-
 /* source mode */
 .markdown-source-view {
 	font-family: var(--font-text-theme);
@@ -647,55 +693,12 @@ body {
 	background-color: var(--background-primary);
 }
 
-.inline-title {
-	font-weight: var(--h1-weight);
-}
-
 /* increase space between editor and metadata – credit to Minimal */
 .metadata-container {
 	--input-height: 2rem;
 }
 .markdown-source-view .metadata-container {
 	transform: translateX(-4px);
-}
-
-body {
-	--table-header-size: var(--font-small);
-	--table-header-weight: var(--font-semibold);
-	--table-header-color: var(--text-normal);
-}
-.cm-embed-block.markdown-rendered .block-language-dataview,
-.markdown-rendered table,
-.markdown-rendered .table-view-table {
-	margin-bottom: 1.5em;
-	width: 100%;
-}
-.cm-embed-block.markdown-rendered .block-language-dataview th,
-.cm-embed-block.markdown-rendered .block-language-dataview td,
-.markdown-rendered table th,
-.markdown-rendered table td,
-.markdown-rendered .table-view-table th,
-.markdown-rendered .table-view-table td {
-	padding: 0.6em 1.8em 0.6em 1.8em;
-}
-.cm-embed-block.markdown-rendered .block-language-dataview td,
-.markdown-rendered table td,
-.markdown-rendered .table-view-table td {
-	font-size: var(--font-small);
-}
-:root h1 {
-	margin: 0;
-}
-.markdown-preview-view div:has(> h1) + div > p {
-	margin-top: 1em;
-}
-.markdown-preview-view div:has(+ div > h1) > p {
-	margin-bottom: 0.33em;
-}
-
-/* FIX: margin-top funkiness present since Obsidian 1.1+ */
-.markdown-source-view table {
-	margin-top: 0;
 }
 
 /* FIX: background color for titlebar buttons on Windows */
@@ -719,12 +722,14 @@ div.cm-fold-indicator {
 	font-family: var(--font-interface-theme);
 }
 
-/* KANBAN by @mgmeyers */
+/*########################### KANBAN by @mgmeyers */
+
 .kanban-plugin__grow-wrap > textarea {
 	background-color: var(--background-primary);
 }
 
-/* OBSIDIAN TODO by @larslockefeer */
+/*########################### OBSIDIAN TODO by @larslockefeer*/
+
 div.todo-item-view-item span.due-date {
 	background-color: var(--yellow);
 	color: white; /* makes due dates legible */
@@ -744,48 +749,11 @@ div.todo-item-view-toolbar-item.active svg {
 	fill: var(--text-accent);
 }
 
-.markdown-preview-view h1,
-.markdown-rendered h1 {
-	border-left: 4px solid var(--h1-color-line);
-	padding-left: 0.6em;
+/*########################### CALLOUTS*/
+.callout {
+	background-color: rgba(var(--callout-color), 0.2);
 }
 
-.markdown-preview-view h2,
-.markdown-rendered h2 {
-	border-left: 4px solid var(--h2-color-line);
-	padding-left: 0.6em;
-}
-
-.markdown-preview-view h3,
-.markdown-rendered h3 {
-	border-left: 4px solid var(--h3-color-line);
-	padding-left: 0.6em;
-}
-
-.markdown-preview-view h4,
-.markdown-rendered h4 {
-	border-left: 4px solid var(--h4-color-line);
-	padding-left: 0.6em;
-}
-
-.markdown-preview-view h5,
-.markdown-rendered h5 {
-	border-left: 4px solid var(--h5-color-line);
-	padding-left: 0.6em;
-}
-
-.markdown-preview-view h6,
-.markdown-rendered h6 {
-	border-left: 4px solid var(--h6-color-line);
-	padding-left: 0.6em;
-}
-
-body {
-	--aside-background: transparent;
-	--aside-background-hover: var(--background-modifier-hover);
-	--aside-text-color: var(--text-muted);
-	--aside-border-color: var(--background-modifier-border);
-}
 .callout[data-callout~="aside"] {
 	--callout-color: 0, 0, 0;
 	--callout-icon: none;
@@ -974,10 +942,65 @@ body {
 	padding-right: 3px;
 }
 
+/*########################### HEADINGS*/
+
+/*This CSS code block controls the spacing around H1 headings in Obsidian's markdown preview view, creating better visual separation between headings and surrounding content.*/
+:root h1 {
+	margin: 0;
+}
+.markdown-preview-view div:has(> h1) + div > p {
+	margin-top: 1em;
+}
+.markdown-preview-view div:has(+ div > h1) > p {
+	margin-bottom: 0.33em;
+}
+
+.inline-title {
+	font-weight: var(--h1-weight);
+}
+
+.markdown-preview-view h1,
+.markdown-rendered h1 {
+	border-left: 4px solid var(--h1-color-line);
+	padding-left: 0.6em;
+}
+
+.markdown-preview-view h2,
+.markdown-rendered h2 {
+	border-left: 4px solid var(--h2-color-line);
+	padding-left: 0.6em;
+}
+
+.markdown-preview-view h3,
+.markdown-rendered h3 {
+	border-left: 4px solid var(--h3-color-line);
+	padding-left: 0.6em;
+}
+
+.markdown-preview-view h4,
+.markdown-rendered h4 {
+	border-left: 4px solid var(--h4-color-line);
+	padding-left: 0.6em;
+}
+
+.markdown-preview-view h5,
+.markdown-rendered h5 {
+	border-left: 4px solid var(--h5-color-line);
+	padding-left: 0.6em;
+}
+
+.markdown-preview-view h6,
+.markdown-rendered h6 {
+	border-left: 4px solid var(--h6-color-line);
+	padding-left: 0.6em;
+}
+
 .mod-cm6 .HyperMD-header,
 .markdown-reading-view :is(h3, h4, h5, h6) {
 	margin-top: 2em !important;
 }
+
+/*########################### MATH-BLOCKS*/
 
 .math-block > mjx-container[jax="CHTML"] {
 	font-size: 1.2em;
@@ -990,10 +1013,15 @@ body {
 .math-inline > mjx-container[jax="CHTML"] {
 	font-size: 110%;
 }
+
+/*########################### HIGHLIGHT & MARKS*/
+
 .cm-s-obsidian span.cm-highlight,
 .markdown-rendered mark {
 	color: inherit;
 }
+
+/*########################### BLOCK-QUOTES*/
 
 .markdown-preview-view blockquote {
 	border-inline-start: 0.2em solid var(--dark4) !important;
