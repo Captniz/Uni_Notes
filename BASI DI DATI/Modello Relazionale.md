@@ -129,5 +129,40 @@ In `R1` c’è un insieme di attributi <mark class="hltr-orange">FK</mark> (*For
 >
 >Tuttavia se assumono questo valore <mark class="hltr-red">NON POSSONO FAR PARTE DELLA PRIMARY KEY</mark> di `R1`.
 
-%%saltate pp 22->24%%
-%%pp25%%
+
+### Stato di una base relazionale
+
+> [!QUOTE] Definizione di Stato di una base relazionale
+> > Uno stato di una base di dati relazionale con schema $S$ è un insieme di stati delle relazioni $\{r_1, r_2, ..., r_m\}$ tali che ogni $r_i$ è uno stato di $R_i$ e tale che $r_i$ soddisfa i vincoli di integrità relazionale in IC.
+>
+> PDF : [[02 Modello Relazionale.pdf#page=24&selection=16,0,52,49|02 Modello Relazionale, p.24]]
+> 
+
+Uno stato di una base di dati relazionale viene talvolta chiamato un’**istantanea** (*snapshot*).
+
+Uno stato di base di dati che <mark class="hltr-orange">non rispetta i vincoli in IC</mark> è uno stato <mark class="hltr-red">non valido</mark>.
+
+Ogni volta che la base di dati è modificata, si passa in un nuovo stato della base di dati; le operazioni per modificare un database si suddividono in:
+- **INSERT**: inserimento di una nuova tupla in una relazione.
+- **DELETE**: cancellazione di una tupla da una relazione. 
+- **MODIFY**: modifica di un attributo di una tupla.
+
+E' per questo che è importante che queste azioni <mark class="hltr-red">NON VIOLINO I VINCOLI DI INTEGRITA'</mark>.
+
+
+> [!example]- Esempio di violazione di vincoli con un INSERT
+> L’operazione INSERT può violare tutti i vincoli:
+> - **Vincoli di dominio**: Il valore di uno o più attributi della/e nuova/e tupla/e non appartiene al dominio specificato nel modello.
+> - **Vincolo di chiave**: Inserimento di tupla/e in cui il valore della chiave già esiste. 
+> - **Integrità referenziale**: Valore della chiave esterna che fa riferimento a valori della chiave primaria della relazione referenziata che non esistono.
+> - **Integrità dell’entità**: Il valore della chiave primaria della/e nuova/e tupla/e è NULL.
+
+#### Preservare l'integrità referenziale
+Ci sono vari modi per mantenere l'integrità referenziale quando si fa una modifica al campo referenziato dalla foreign key. Questi sono i modi principali: 
+
+- **RESTRICT** (*NO ACTION*): rifiutare l’operazione.
+- **CASCADE**: cancellare tutte le tuple che referenziavano la chiave primaria della tupla cancellata o modificata. 
+- **SET NULL**: assegnare il valore `NULL` alla chiave esterna delle tuple che referenziavano la chiave primaria della tupla cancellata o modificata.
+- **SET DEFAULT**: assegnare un valore di default alle chiavi esterne che referenziavano la chiave primaria della tupla cancellata o modificata.
+
+%%saltate pp 22->23%%
