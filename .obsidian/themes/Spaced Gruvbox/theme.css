@@ -996,9 +996,10 @@ div.todo-item-view-toolbar-item.active svg {
 }
 
 .mod-cm6 .HyperMD-header,
-.markdown-reading-view :is(h3, h4, h5, h6) {
+.markdown-reading-view :is(h2, h3, h4, h5, h6) {
 	margin-top: 2em !important;
 }
+
 
 /*########################### MATH-BLOCKS*/
 

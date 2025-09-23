@@ -30,4 +30,3 @@ The purpose of a command is the modification of the **state**.
 #### Side effects
 > Any **change in the system** state that occurs outside the immediate (local) context of the computation.
 
-%%TODO: pp.24 lez.2%%

@@ -147,5 +147,3 @@ ld x5, 16(sp)
 addi sp, sp, 24 
 jalr x0, 0(x1)
 ```
-
-%%pp20 l 9%%
