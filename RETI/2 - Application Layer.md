@@ -6,4 +6,3 @@ Related PDF/DOC:
   - "[[reti_cap2_PC.pdf]]"
 Related Pages:
 ---
-o

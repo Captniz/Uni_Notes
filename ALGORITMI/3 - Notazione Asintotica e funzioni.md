@@ -108,3 +108,15 @@ $$
 > [[04-funzioni.pdf#page=27&rect=11,61,354,160|04-funzioni, p.21]]
 
 %%TODO: PP 24%%
+
+## Metodi per la risoluzione delle ricorrenze
+
+![[EMBED/04-funzioni 9.png]]
+### Analisi per livelli
+### Metodo della sostituzione
+
+> [!QUOTE] Processo del metodo della sostituzione
+> > È un metodo in cui si cerca di *“indovinare”* una soluzione, in base alla propria esperienza, e si dimostra che questa soluzione è corretta tramite induzione.
+>
+> PDF : [[04-funzioni.pdf#page=57&selection=16,0,18,27|04-funzioni, p.35]]
+
