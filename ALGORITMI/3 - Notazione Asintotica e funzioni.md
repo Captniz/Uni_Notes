@@ -120,3 +120,10 @@ $$
 >
 > PDF : [[04-funzioni.pdf#page=57&selection=16,0,18,27|04-funzioni, p.35]]
 
+### Metodo esperto
+
+---
+![[EMBED/04-funzioni 10.png]]
+[[04-funzioni.pdf#page=95&rect=10,32,354,219|04-funzioni, p.49]]
+
+---
