@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "TiGeometry",
       "LiNetwork",
       "TiLock",
       "TiDatabase",
-      "IbDatabse",
-      "TiAlignBoxRightMiddle"
+      "IbDatabse"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [
@@ -82,5 +82,6 @@
   "ALGORITMI": "TiAlignBoxRightMiddle",
   "BASI DI DATI": "TiDatabase",
   "CYBERSECURITY": "TiLock",
-  "RETI": "LiNetwork"
+  "RETI": "LiNetwork",
+  "GEOMETRIA": "TiGeometry"
 }
