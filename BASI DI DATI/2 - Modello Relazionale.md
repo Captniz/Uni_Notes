@@ -1,7 +1,7 @@
 ---
 Date created: 17-09-25 • 14:16
 tags:
-  - databases
+  - Databases
 Related PDF/DOC:
   - "[[02 Modello Relazionale.pdf]]"
 Related Pages:
