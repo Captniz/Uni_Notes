@@ -338,3 +338,12 @@ In questi casi è necessario usare più indici allo stesso tempo; esistono diver
 - Usare il B+ tree index su `(B,C)` e poi verificare la condizione `A=7` solo sulle tuple recuperate.
 - Usare entrambi gli indici, fare l’intersezione dei *RID* e solo successivamente recuperare le tuple corrispondenti.
 
+
+## Tabella riassuntiva dei costi
+
+---
+
+![[EMBED/Updated_11 Algoritmi JOIN e costi 1.png]]
+[[Updated_11 Algoritmi JOIN e costi.pdf#page=21&rect=82,4,634,420|Updated_11 Algoritmi JOIN e costi, p.21]]
+
+---

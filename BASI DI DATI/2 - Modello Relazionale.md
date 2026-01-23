@@ -28,6 +28,7 @@ Ci sono due livelli che definiscono una relazione:
 - Lo <mark class="hltr-orange">schema</mark> della relazione (*livello intensionale*).
 - <mark class="hltr-purple">Istanze</mark> della relazione (*livello estensionale*).
 
+---
 ### Struttura di una relazione
 #### Definizione intensionale
 Lo schema di una relazione definisce :
@@ -43,6 +44,8 @@ Lo schema di una relazione definisce :
 ![[EMBED/02 Modello Relazionale.png]]
 [[02 Modello Relazionale.pdf#page=5&rect=122,252,565,402|02 Modello Relazionale, p.5]]
 
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 #### Definizione estensionale
 
 > [!QUOTE] Definizione di istanza
@@ -52,10 +55,19 @@ Lo schema di una relazione definisce :
 
 E' imperativo che <mark class="hltr-red">NON ESISTANO RECORD DUPLICATI</mark> per assicurare la correttezza pratica e teorica.
 
-Il numero di istanze della definisce la **cardinalità** della relazione.
+Il numero di istanze  definisce la **cardinalità** della relazione.
 
-%%Salto lo stato della relazione pk sticazzi [[02 Modello Relazionale.pdf#page=7|02 Modello Relazionale, p.7]]%%
+---
+### Stato di una relazione
+> Lo stato di una relazione è un sottoinsieme del prodotto cartesiano dei domini dei suoi attributi.
 
+O in termini più semplici è un *istante* della relazione (*uno snapshot*), espresso come :
+
+$$r(R) = \{t_1, t_2, …, t_n\} \text{ dove ogni } t_i \text{ è una tupla}$$
+
+Nello stato di una relazione, <mark class="hltr-red">l’ordine delle tuple non conta</mark>.
+
+---
 ### Vincoli sulle relazioni
 Un vincolo è definito come una condizione che <mark class="hltr-orange">DEVE</mark> valere affinché lo stato di una relazione sia **valido**.
 
@@ -71,6 +83,9 @@ Inoltre esistono diversi tipi di <mark class="hltr-purple">vincoli espliciti</ma
 - Vincolo di **chiave**.
 - Vincolo di **integrità delle entità**.
 - Vincolo di **integrità referenziale**.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 #### Vincolo di chiave
 Ogni riga di una relazione ha un campo (*o multipli*) il cui valore (*o valore combinato*) <mark class="hltr-red">identificano univocamente</mark> quella riga in quella tabella. Questo campo è detto **chiave della relazione** (*key*).
 
@@ -94,12 +109,16 @@ Se una relazione si ha più di una chiave candidata, una viene scelta come **chi
 
 I valori della chiave primaria sono usati per <mark class="hltr-red">identificare in modo univoco ogni tupla della relazione</mark>, inoltre può essere usata per fare *riferimento* a quella tupla da tuple di un’altra relazione.
 
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 #### Vincolo sulle entità
 Si possono anche imporre dei vincoli sui campi inseriti in una tupla.
 
 
 > [!example] Esempio di integrità di un entità
 > Nessuno degli attributi che compongono la chiave primaria $P_K$ di una relazione $R$ può avere valore `NULL` in alcuna tupla di $r(R)$.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 #### Vincolo di integrità referenziale
 A differenza degli altri vincoli, un vincolo di integrità referenziale coinvolge **due relazioni**, una <mark class="hltr-orange">referenziante</mark> (`R1`) e una <mark class="hltr-purple">referenziata</mark> (`R2`).
@@ -130,6 +149,22 @@ In `R1` c’è un insieme di attributi <mark class="hltr-orange">FK</mark> (*For
 >Tuttavia se assumono questo valore <mark class="hltr-red">NON POSSONO FAR PARTE DELLA PRIMARY KEY</mark> di `R1`.
 
 
+---
+
+### Schema di un database relazionale
+> Uno schema di un database relazionale è un insieme S di schemi di relazione che appartengono alla stessa base di dati.
+
+Questo viene espresso come :
+$$
+S = <{R_1, R_2, ..., R_n}, IC>
+$$
+
+Dove ...
+- $R_x$ sono i nomi degli schemi di relazione.
+- $IC$ è un insieme di vincoli di integrità.
+
+---
+
 ### Stato di una base relazionale
 
 > [!QUOTE] Definizione di Stato di una base relazionale
@@ -157,6 +192,8 @@ E' per questo che è importante che queste azioni <mark class="hltr-red">NON VIO
 > - **Integrità referenziale**: Valore della chiave esterna che fa riferimento a valori della chiave primaria della relazione referenziata che non esistono.
 > - **Integrità dell’entità**: Il valore della chiave primaria della/e nuova/e tupla/e è NULL.
 
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 #### Preservare l'integrità referenziale
 Ci sono vari modi per mantenere l'integrità referenziale quando si fa una modifica al campo referenziato dalla foreign key. Questi sono i modi principali: 
 
@@ -165,4 +202,3 @@ Ci sono vari modi per mantenere l'integrità referenziale quando si fa una modif
 - **SET NULL**: assegnare il valore `NULL` alla chiave esterna delle tuple che referenziavano la chiave primaria della tupla cancellata o modificata.
 - **SET DEFAULT**: assegnare un valore di default alle chiavi esterne che referenziavano la chiave primaria della tupla cancellata o modificata.
 
-%%saltate pp 22->23%%

@@ -71,7 +71,7 @@ Quindi la scomposizione lossless è garantita se gli attributi comuni alle due r
 
 ### 1a Forma Normale
 > [!QUOTE] 1a forma normale
-> > La Prima Forma Normale prescrive che una relazione non debba avere :
+> > La Prima Forma Normale dice che una relazione non debba avere :
 > > 
 > > - *Tuple ripetute*.
 > >  - *Attributi composti* o *multivalore*.
@@ -124,7 +124,7 @@ Violare la 2NF causa principalmente <mark class="hltr-orange">ridondanza dei dat
 > [!QUOTE] 3a forma normale
 > > La Terza Forma Normale prescrive che una relazione debba avere :
 > > 
-> > - *Essere in 3FN*.
+> > - *Essere in 2FN*.
 > > -  Non avere attributi *non primi* che *dipendono transitivamente dalla chiave*. 
 >
 > PDF : [[08 Normalizzazione.pdf#page=13&selection=4,0,18,25|08 Normalizzazione, p.13]]
