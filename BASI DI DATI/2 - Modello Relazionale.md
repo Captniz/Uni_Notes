@@ -148,6 +148,13 @@ In `R1` c’è un insieme di attributi <mark class="hltr-orange">FK</mark> (*For
 >
 >Tuttavia se assumono questo valore <mark class="hltr-red">NON POSSONO FAR PARTE DELLA PRIMARY KEY</mark> di `R1`.
 
+##### Preservare l'integrità referenziale
+Ci sono vari modi per mantenere l'integrità referenziale quando si fa una modifica al campo referenziato dalla foreign key. Questi sono i modi principali: 
+
+- **RESTRICT** (*NO ACTION*): rifiutare l’operazione.
+- **CASCADE**: cancellare tutte le tuple che referenziavano la chiave primaria della tupla cancellata o modificata. 
+- **SET NULL**: assegnare il valore `NULL` alla chiave esterna delle tuple che referenziavano la chiave primaria della tupla cancellata o modificata.
+- **SET DEFAULT**: assegnare un valore di default alle chiavi esterne che referenziavano la chiave primaria della tupla cancellata o modificata.
 
 ---
 
@@ -192,13 +199,4 @@ E' per questo che è importante che queste azioni <mark class="hltr-red">NON VIO
 > - **Integrità referenziale**: Valore della chiave esterna che fa riferimento a valori della chiave primaria della relazione referenziata che non esistono.
 > - **Integrità dell’entità**: Il valore della chiave primaria della/e nuova/e tupla/e è NULL.
 
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
-
-#### Preservare l'integrità referenziale
-Ci sono vari modi per mantenere l'integrità referenziale quando si fa una modifica al campo referenziato dalla foreign key. Questi sono i modi principali: 
-
-- **RESTRICT** (*NO ACTION*): rifiutare l’operazione.
-- **CASCADE**: cancellare tutte le tuple che referenziavano la chiave primaria della tupla cancellata o modificata. 
-- **SET NULL**: assegnare il valore `NULL` alla chiave esterna delle tuple che referenziavano la chiave primaria della tupla cancellata o modificata.
-- **SET DEFAULT**: assegnare un valore di default alle chiavi esterne che referenziavano la chiave primaria della tupla cancellata o modificata.
 

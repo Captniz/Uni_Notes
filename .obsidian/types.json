@@ -28,6 +28,8 @@
     "Related PDF/DOC": "multitext",
     "excalidraw-export-embed-scene": "checkbox",
     "excalidraw-embeddable-theme": "text",
-    "excalidraw-open-md": "checkbox"
+    "excalidraw-open-md": "checkbox",
+    "excalidraw-export-internal-links": "checkbox",
+    "excalidraw-embed-md": "checkbox"
   }
 }

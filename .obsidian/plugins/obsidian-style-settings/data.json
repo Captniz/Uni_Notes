@@ -1,7 +1,6 @@
 {
   "obsidian-dynamic-outline@@dynamic-outline-highlight-font-weight": "var(--font-bold)",
   "obsidian-dynamic-outline@@dynamic-outline-font-size": "var(--font-small)",
-  "obsidian-dynamic-outline@@dynamic-outline-tab-size": 12,
   "obsidian-dynamic-outline@@heading-level-styling": "none",
   "obsidian-dynamic-outline@@hide-button-from-toolbar": false,
   "obsidian-dynamic-outline@@disable-heading-word-wrap": true,

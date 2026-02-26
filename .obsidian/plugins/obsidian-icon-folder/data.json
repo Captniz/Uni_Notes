@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "IbInternetBrowser",
+      "LiWeight",
       "TiGeometry",
       "LiNetwork",
-      "TiLock",
-      "TiDatabase",
-      "IbDatabse"
+      "TiLock"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [
@@ -83,5 +83,6 @@
   "BASI DI DATI": "TiDatabase",
   "CYBERSECURITY": "TiLock",
   "RETI": "LiNetwork",
-  "GEOMETRIA": "TiGeometry"
+  "GEOMETRIA": "TiGeometry",
+  "WEB_DEV": "IbInternetBrowser"
 }

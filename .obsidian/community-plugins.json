@@ -1,9 +1,7 @@
 [
   "table-editor-obsidian",
-  "calendar",
   "code-block-copy",
   "cm-editor-syntax-highlight-obsidian",
-  "obsidian-excalidraw-plugin",
   "highlightr-plugin",
   "obsidian-icon-folder",
   "obsidian-kanban",
@@ -16,8 +14,8 @@
   "obsidian-git",
   "text-extractor",
   "dynamic-outline",
-  "obsidian-list-callouts",
   "obsidian-style-settings",
   "extended-markdown-syntax",
-  "pdf-plus"
+  "pdf-plus",
+  "obsidian-custom-frames"
 ]
