@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "SiWindows95",
       "IbInternetBrowser",
       "LiWeight",
       "TiGeometry",
-      "LiNetwork",
-      "TiLock"
+      "LiNetwork"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [
@@ -84,5 +84,6 @@
   "CYBERSECURITY": "TiLock",
   "RETI": "LiNetwork",
   "GEOMETRIA": "TiGeometry",
-  "WEB_DEV": "IbInternetBrowser"
+  "WEB_DEV": "IbInternetBrowser",
+  "SISTEMI OPERATIVI": "SiWindows95"
 }
