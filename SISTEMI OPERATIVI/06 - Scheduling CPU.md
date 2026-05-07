@@ -239,6 +239,14 @@ Le code sono divisi per tipologia di processo e <mark class="hltr-orange">ogni c
 
 Inoltre è necessario un algoritmo di scheduling <mark class="hltr-purple">tra le code</mark>, che può essere ...
 
+
+
+> [!example] Schema di una coda multi-livello
+> ![[EMBED/06-Scheduling_CPU v0 7.png]]
+>
+[[06-Scheduling_CPU v0.pdf#page=48&rect=52,59,658,472|06-Scheduling_CPU v0, p.48]]
+
+
 #### Code multi-livello  a priorità fissa
 > Si parte dalla coda con maggior priorità e si va a scendere.
 
@@ -253,4 +261,53 @@ Il problema di questo algoritmo è la <mark class="hltr-orange">starvation</mark
 
 I quanti <mark class="hltr-red">NON DEVONO PER FORZA AVERE LA STESSA DIMENSIONE</mark>.
 
-/te
+
+> [!example]- Esempio di time slices per le code 
+> **80%** per job di *foreground* con RR
+> **20%** per job di *background* con FCFS
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+#### Code multi-livello con feedback ( Adattive )
+> A differenza della coda  multi-livello classica, un processo può spostarsi as altre code a seconda delle sue caratteristiche.
+
+Questo tipo di coda è utilizzato per implementare l'<mark class="hltr-purple">aging</mark>.
+
+L'algoritmo di scheduling tra code a questo punto deve avere questi parametri :
+- Numero di code.
+- Algoritmo associati alle code.
+- Criteri per promozione/degradazione dei processi.
+- Criteri per l'assegnazione iniziale di un processo a una coda.
+
+
+> [!example]- Esempio di funzionamento di coda multi-livello adattiva
+> ![[EMBED/06-Scheduling_CPU v0 8.png]]
+>
+[[06-Scheduling_CPU v0.pdf#page=50&rect=28,79,691,447|06-Scheduling_CPU v0, p.50]]
+
+---
+### Scheduling fair-share
+> Algoritmo che si concentra sulle applicazioni (e quindi agli utenti) e non ai singoli processi.
+
+A differenza degli altri algoritmi, fair-share cerca di dividere le risorse per applicazione (*formate da diversi processi*) anzi che dividerle per job.
+
+In sintesi **le risorse vengono divise tra gruppi di processi.**
+
+
+> [!example] Schema della divisione di risorse del fair-share
+> ![[EMBED/06-Scheduling_CPU v0 9.png]]
+>
+[[06-Scheduling_CPU v0.pdf#page=52&rect=134,44,624,205|06-Scheduling_CPU v0, p.52]]
+
+---
+
+## Scheduling nella realtà
+Gli algoritmi reali usano la prelazione e sono spesso basati su **RR**.
+
+
+> [!example] Esempio reale di algoritmo di scheduling - Unix Solaris
+> Basato su priorità con aging.
+> - Priorità = priorità base + priorità corrente
+> - Priorità base = [-20 … +20]
+> - Priorità corrente = $0.1 \cdot CPU(5\cdot n)$ – CPU(t) = utilizzo della CPU negli ultimi t secondi – n = numero medio di processi pronti all’esecuzione nell’ultimo secondo • Concetto: scheduler “dimentica” il 90% dell’utilizzo di CPU degli ultimi 5n secondi – Idea: favorire processi che hanno usato “poco” la CPU
+
