@@ -27,18 +27,17 @@ La **multiprogrammazione** impone l’esistenza di una strategia per regolamenta
 >
 [[06-Scheduling_CPU v0.pdf#page=8&rect=140,23,661,189|06-Scheduling_CPU v0, p.8]]
 
+
 ### Scheduler a breve termine (CPU Scheduler)
 > Seleziona dalla memoria quale processo deve essere eseguito dalla *CPU*.
 
-Dato che viene invocato spesso esegue le sue operazioni in tempo
-$O(ms)$.
+Dato che viene invocato spesso esegue le sue operazioni in tempo $O(ms)$.
 > [!example]- Calcolo del tempo utilizzato dallo scheduler CPU
 >
 > *Es.* su 100ms concessi a ogni processo, 10ms sono necessari per lo scheduling.
 > 
 > $10/(110) = 9\%$ del tempo di CPU sprecato per lo scheduling.
 
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 #### Dispatcher
 > Modulo del SO che passa il controllo della CPU al processo scelto dallo scheduler. 
@@ -50,8 +49,23 @@ Il dispatcher esegue il suo compito in tre parti :
 
 La *latenza di dispatch* è il tempo necessario al dispatcher per fermare un processo e farne ripartire un altro.
 
+#### Prelazione ( Preemption )
+> Con *prelazione* si definisce il rilascio forzato dalla CPU.
+
+Lo short-term scheduler può essere con o senza prelazione ...
+- <mark class="hltr-orange">Preemptive</mark> : Il processo può essere forzato a rilasciare la CPU prima del termine del burst.
+- <mark class="hltr-purple">Non-preemptive</mark> : Il processo che detiene la CPU non la rilascia fino al termine del burst.
+
+
+
+> [!example] Schema della differenza tra preemptive e non
+> ![[EMBED/06-Scheduling_CPU v0 6.png]]
+>
+[[06-Scheduling_CPU v0.pdf#page=17&rect=74,71,665,224|06-Scheduling_CPU v0, p.17]]
+
 
 <hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 
 ### Scheduler a lungo termine (JOB Scheduler)
 
@@ -64,6 +78,12 @@ A differenza dello short-term scheduler può essere più lento (*$O(s)$*).
 Controlla il mix di processi entranti nell'esecuzione; diversi processi richiedono diverse risorse e pertanto devono essere spartiti correttamente :
 - <mark class="hltr-orange">IO Bound</mark> : Molte operazioni IO, molti CPU burst brevi.
 - <mark class="hltr-purple">CPU Bound</mark> : Molti calcoli, pochi CPU burst lunghi.
+
+> [!example] Schema di esecuzione di un processo
+> ![[EMBED/06-Scheduling_CPU v0 4.png]]
+>
+[[06-Scheduling_CPU v0.pdf#page=15&rect=385,68,704,422|06-Scheduling_CPU v0, p.15]]
+
 
 Il long-term scheduler <mark class="hltr-red">PUO' ANCHE ESSERE ASSENTE</mark> (*presente solitamente in sistemi con risorse limitate*). 
 
@@ -81,7 +101,156 @@ Il long-term scheduler <mark class="hltr-red">PUO' ANCHE ESSERE ASSENTE</mark> (
 >
 [[06-Scheduling_CPU v0.pdf#page=11&rect=38,74,690,395|06-Scheduling_CPU v0, p.11]]
 
+---
+## Algoritmi di scheduling
+
+> [!info]- Metriche di scheduling
+> > Utilizzo della CPU 
+> 
+> L’obiettivo è tenere CPU occupata più possibile.
+> > Throughput 
+> 
+> Numero di processi completati per unità di tempo.
+> > Tempo di attesa (*waiting time*)
+> 
+> Quantità totale di tempo spesa da un processo nella coda di attesa; influenzato dall’algoritmo di scheduling.
+> 
+> > Tempo di completamento (*turnaround*)
+> 
+> Tempo necessario ad eseguire un particolare processo dal momento della sottomissione al momento del completamento.
+> >Tempo di risposta (*response time*)
+>
+> Tempo trascorso da quando una richiesta è stata sottoposta al sistema fino alla prima risposta del sistema stesso.
+
+### FCFS - First come, first served
+> Implementato attraverso una coda FIFO. La più semplice delle implementazioni.
+
+Lo svantaggio di quest'algoritmo è l'*effetto convoglio*, cioè quando processi brevi si accodano ai processi lunghi precedentemente arrivati.
+
+Questo crea problemi in contesti interattivi e programm che richiedono spesso piccoli CPU burst.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+### SJF - Shortest Job First
+> Il processo con il prossimo burst di CPU più breve viene selezionato per l’esecuzione.
+
+Il calcolo del prossimo burst <mark class="hltr-red">E' SOLO UNA STIMA</mark> basata sui burst precedenti. Si utilizza una media esponenziale basata sulla formula :
+
+$$
+τ_{n+1} = α * t_n + (1 - α) * τ_n
+$$
+- $t_n$ : Lunghezza reale n-esimo burst
+- $τ_n$ : Lunghezza stimata n-esimo burst
+- $α$ : Coefficiente ($0<α<1$)
+
+Il coefficiente specifica in che quantità considerare le stime e i valori reali precedenti.
+
+
+> [!example]- Esempio coefficiente
+> > $α = 0 \implies τ_{n+1} = τ_n$
+> 
+> Storia recente non viene usata.
+> > $α = 1 \implies τ_{n+1} = t_n$
+> 
+> Conta solo l’ultimo burst reale.
 
 
 
-%%PP 15%%
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+
+Anche qui si può parlare di variante **preemptive e non** ...
+
+#### SRTF - Shortest Remaining Time First 
+> SJF con schema **preemptive**.
+
+In questo algoritmo, se arriva un nuovo processo con un burst di CPU più breve del tempo rimanente all'esecuzione del processo corrente, quest’ultimo viene rimosso dalla CPU per fare spazio a quello appena arrivato.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+### Scheduling a priorità
+> Viene associata una priorità a ogni processo; la CPU viene allocata al processo con priorità più alta.
+
+
+> [!warning]- Specifica SJF 
+> SJF <mark class="hltr-red">E' ANCHE</mark> uno scheduling a priorità:  $$\text{priorita}=1/\text{next burst length}$$
+
+
+La *priorità* può essere assegnata attraverso politiche interne al SO ...
+
+- Limiti di tempo
+- Requisiti di memoria
+- File aperti
+- ...
+
+... o esterne al SO :
+
+- Importanza del processo
+- Motivi politici
+- ...
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+Il problema più noto di questo scheduling è la <mark class="hltr-orange">starvation</mark>.
+
+La *starvation* implica che processi a bassa priorità possono non venire mai eseguiti.
+
+La soluzione è l'<mark class="hltr-purple">aging</mark>, cioè l'aumento della priorità col passare del tempo.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+Anche in questo caso si può parlare di preemptive ...
+
+#### HRRN - Higher Response Ratio Next
+> Algoritmo a priorità non-preemptive
+
+La priorità, il *response ratio* ...
+$$
+R = (t_\text{wait}+t_\text{burst})/t_\text{burst}
+$$
+
+va ricalcolata al termine di un processo (*solo se nel frattempo ne sono arrivati altri*) oppure, al termine di un processo.
+
+Con questa formula sono favoriti i processi che:
+- Completano in poco tempo (*come SJF*)
+- Hanno atteso molto
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+### RR - Round Robin
+> Scheduling basato su time-out
+
+A ogni processo viene assegnata una piccola parte (*quanto*) del tempo di CPU (*10-100 millisecondi*); al termine del quanto, il processo è messo in coda alla ready queue.
+
+La scelta della dimensione del quanto è fondamentale :
+
+Un $q$ grande essenzialmente emula la **FCFS**, mentre per $q$ piccolo bisogna far attenzione all'overhead introdotto dal *context switch*. Un valore di $q$ ragionevole fa si che sia maggiore dell'80% dei burst di CPU. 
+
+Rispetto a SJF, RR ha *turnaround* maggiore/uguale e *response time* minore/uguale.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+
+### Scheduling a code multi-livello
+> Classe di algoritmi in cui la ready queue è partizionata in più code.
+
+Le code sono divisi per tipologia di processo e <mark class="hltr-orange">ogni coda ha un suo algoritmo di scheduling</mark>.
+
+Inoltre è necessario un algoritmo di scheduling <mark class="hltr-purple">tra le code</mark>, che può essere ...
+
+#### Code multi-livello  a priorità fissa
+> Si parte dalla coda con maggior priorità e si va a scendere.
+
+In pratica si serve prima tutti i processi di sistema, poi quelli in foreground, poi quelli in background, ...
+
+Il problema di questo algoritmo è la <mark class="hltr-orange">starvation</mark> delle ultime code.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+#### Code multi-livello basate su time slice
+> Ogni coda ottiene un quanto del tempo di CPU che può usare per schedulare i suoi processi.
+
+I quanti <mark class="hltr-red">NON DEVONO PER FORZA AVERE LA STESSA DIMENSIONE</mark>.
+
+/te

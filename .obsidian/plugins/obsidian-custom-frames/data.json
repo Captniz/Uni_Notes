@@ -1,0 +1,17 @@
+{
+  "frames": [
+    {
+      "url": "https://www.desmos.com/calculator",
+      "displayName": "Desmos",
+      "icon": "calculator",
+      "hideOnMobile": true,
+      "addRibbonIcon": true,
+      "openInCenter": false,
+      "zoomLevel": 1,
+      "forceIframe": false,
+      "customCss": "",
+      "customJs": ""
+    }
+  ],
+  "padding": 5
+}
