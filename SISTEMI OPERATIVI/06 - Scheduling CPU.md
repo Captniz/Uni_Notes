@@ -305,9 +305,15 @@ In sintesi **le risorse vengono divise tra gruppi di processi.**
 Gli algoritmi reali usano la prelazione e sono spesso basati su **RR**.
 
 
-> [!example] Esempio reale di algoritmo di scheduling - Unix Solaris
+> [!example]- Esempio reale di algoritmo di scheduling - Unix Solaris
 > Basato su priorità con aging.
 > - Priorità = priorità base + priorità corrente
 > - Priorità base = [-20 … +20]
-> - Priorità corrente = $0.1 \cdot CPU(5\cdot n)$ – CPU(t) = utilizzo della CPU negli ultimi t secondi – n = numero medio di processi pronti all’esecuzione nell’ultimo secondo • Concetto: scheduler “dimentica” il 90% dell’utilizzo di CPU degli ultimi 5n secondi – Idea: favorire processi che hanno usato “poco” la CPU
+> - Priorità corrente = $0.1 \cdot CPU(5\cdot n)$ 
+> 	- $CPU(t)$ : utilizzo della CPU negli ultimi $t$ secondi
+> 	- $n$ : numero medio di processi pronti all’esecuzione nell’ultimo secondo
+> 
+> *Concetto*: Lo scheduler “dimentica” il 90% dell’utilizzo di CPU degli ultimi $5n$ secondi.
+> 
+> *Idea*: favorire processi che hanno usato “poco” la CPU.
 
