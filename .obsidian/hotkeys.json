@@ -30,5 +30,12 @@
       ],
       "key": "F"
     }
-  ]
+  ],
+  "file-explorer:open": [
+    {
+      "modifiers": [],
+      "key": "F2"
+    }
+  ],
+  "workspace:edit-file-title": []
 }

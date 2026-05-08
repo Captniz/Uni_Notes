@@ -4,5 +4,3 @@ tags:
 Related PDF/DOC: 
 Related Pages:
 ---
-## Title
-> Definition
