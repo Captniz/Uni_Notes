@@ -2,14 +2,14 @@
 Date created: 02-05-26 • 19:03
 tags:
 Related PDF/DOC:
-  - "[[06-Scheduling_CPU v0.pdf]]"
+  - "[[07-Scheduling_CPU v0.pdf]]"
 Related Pages:
 ---
 > Lo scheduling è definito come l'assegnazione di attività nel tempo (*riferito ai processi*).
 
 La **multiprogrammazione** impone l’esistenza di una strategia per regolamentare:
 1. Ammissione dei processi nella <mark class="hltr-orange">memoria</mark> 
-2. Ammissione dei processi all’esecuzione (<mark class="hltr-purple">CPU</mark>)
+2. Ammissione dei processi all’esecuzione (<mark class="hltr-purple">CPU</mark> - *time sharing*)
 
 
 > [!example] Schema del ciclo di esecuzione di un processo
@@ -18,6 +18,7 @@ La **multiprogrammazione** impone l’esistenza di una strategia per regolamenta
 [[06-Scheduling_CPU v0.pdf#page=5&rect=51,59,659,422|06-Scheduling_CPU v0, p.5]]
 
 ---
+
 
 ## TIpi di scheduler
 
@@ -38,16 +39,39 @@ Dato che viene invocato spesso esegue le sue operazioni in tempo $O(ms)$.
 > 
 > $10/(110) = 9\%$ del tempo di CPU sprecato per lo scheduling.
 
+#### Code IO
+> Oltre alla *ready queue* sono presenti diverse **IO queues** per i diversi dispositivi IO.
+
+Essenzialmente sono code dei processi in attesa che il dispositivo si liberi.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 #### Dispatcher
 > Modulo del SO che passa il controllo della CPU al processo scelto dallo scheduler. 
 
 Il dispatcher esegue il suo compito in tre parti :
-1. *Context switch*.
-2. Passaggio alla modalità *user*.
+1. Scambio del [[06 - Processi e Thread#PCB - Process Control Block - Attributi di un processo |PCB]] dei due processi (*Context switch*).
+2. Passaggio alla modalità *user* (*mode switch*).
 3. Salto alla opportuna locazione nel programma per farlo continuare.
 
+> [!warning]- Context switching
+> Il context switch consiste in ... 
+> 1. Registrazione dello stato del processo vecchio.
+> 2. Caricamento dello stato (*precedentemente registrato*) del nuovo processo.
+> 
+> Il tempo necessario al cambio di contesto è puro overhead e la sua durata dipende dall’architettura.
+> 
+> ---
+> 
+>
+> > [!example] Schema di un context switch
+> > ![[EMBED/06-Processi e Thread 3.png]]
+> >
+[[06-Processi e Thread.pdf#page=21&rect=68,39,667,408|06-Processi e Thread, p.21]]
+
 La *latenza di dispatch* è il tempo necessario al dispatcher per fermare un processo e farne ripartire un altro.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 #### Prelazione ( Preemption )
 > Con *prelazione* si definisce il rilascio forzato dalla CPU.
@@ -56,17 +80,30 @@ Lo short-term scheduler può essere con o senza prelazione ...
 - <mark class="hltr-orange">Preemptive</mark> : Il processo può essere forzato a rilasciare la CPU prima del termine del burst.
 - <mark class="hltr-purple">Non-preemptive</mark> : Il processo che detiene la CPU non la rilascia fino al termine del burst.
 
-
-
 > [!example] Schema della differenza tra preemptive e non
 > ![[EMBED/06-Scheduling_CPU v0 6.png]]
 >
 [[06-Scheduling_CPU v0.pdf#page=17&rect=74,71,665,224|06-Scheduling_CPU v0, p.17]]
 
-
 <hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
+#### Alterazioni del percorso di esecuzione
+I processi rimangono nella ready queue finchè il dispatcher non li ammette all'esecuzione.
 
+Durante l’esecuzione, si possono tuttavia avere diverse situazioni che alterano il percorso di esecuzione del processo : 
+- Il processo necessita di IO e viene inserito in una IO queue.
+- Il processo termina il quanto di tempo accordato, viene rimosso forzatamente dalla CPU e re-inserito nella ready queue (*preemption*).
+-  Il processo crea un figlio e ne attende la terminazione.
+- Il processo si mette in attesa di un evento.
+
+
+> [!example] Schema delle code di attesa
+> ![[EMBED/06-Processi e Thread 2.png]]
+>
+[[06-Processi e Thread.pdf#page=17&rect=43,53,678,416|06-Processi e Thread, p.17]]
+
+
+---
 ### Scheduler a lungo termine (JOB Scheduler)
 
 >Seleziona quali processi devono essere portati dalla memoria alla *ready queue*. 
@@ -317,3 +354,40 @@ Gli algoritmi reali usano la prelazione e sono spesso basati su **RR**.
 > 
 > *Idea*: favorire processi che hanno usato “poco” la CPU.
 
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+
+Gli algoritmi vengono valutati in tre passi :
+- Modello deterministico
+- Modello a reti di code
+- Simulazione
+
+### Modello deterministico ( Analitico )
+> Definisce le prestazioni di ogni algoritmo per uno specifico carico. Di solito usato per illustrate gli algoritmi.
+
+Essenzialmente un esempio con schema di un determinato caso. Non definisce in modo generale le prestazioni dell'algoritmo.
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+
+### Modello a reti di code
+> Modello basato sulla distribuzione prevista di CPU burst e I/O burst.
+
+Il sistema di calcolo è descritto come una *rete di server ognuno con la propria coda*.
+
+Per determinare il carico del modello si utilizzano formule matematiche che determinano: 
+- La probabilità che si verifichi un certo CPU burst. 
+- La distribuzione dei tempi di arrivo dei processi.
+
+Da questo modello è possibile ricavare : 
+- utilizzo
+- throughput medio 
+- tempi di attesa
+- ...
+
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
+### Simulazione
+> Modello programmato del sistema.
+
+Abbastanza precisa ma costosa, vengono poi utilizzati dati statistici o reali sui processi.
