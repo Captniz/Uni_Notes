@@ -49,4 +49,8 @@ Questa sezione rispetta tre criteri fondamentali :
 - **Progress** : Solo i processi che *stanno per entrare* nella sezione critica possono decidere chi entra.
 - **Bounded Waiting** : Esiste un massimo di volte per cui un processo può aspettare (*consecutive*).
 
-/call
+
+> [!example] Struttura generica di sezione critica
+> ![[EMBED/08-Sincronizzazione 2.png]]
+>
+[[08-Sincronizzazione.pdf#page=10&rect=38,74,700,331|08-Sincronizzazione, p.10]]

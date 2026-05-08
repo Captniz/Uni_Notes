@@ -31,11 +31,17 @@
       "key": "F"
     }
   ],
-  "file-explorer:open": [
+  "workspace:edit-file-title": [],
+  "switcher:open": [
     {
       "modifiers": [],
       "key": "F2"
     }
   ],
-  "workspace:edit-file-title": []
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [],
+      "key": "F3"
+    }
+  ]
 }
