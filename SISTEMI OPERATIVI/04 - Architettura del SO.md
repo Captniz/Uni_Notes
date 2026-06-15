@@ -8,7 +8,7 @@ Related Pages:
 ---
 ## Princìpi fondamentali di progettazione
 
-Tradizionalmente i SO venivano scritti in Assembly; tuttavia i SO moderni vengono scritti in linguaggi ad alto livello (*C/C++*) per ottenere :
+Tradizionalmente i SO venivano scritti in Assembly, tuttavia i SO moderni vengono scritti in linguaggi ad alto livello (*C/C++*) per ottenere :
 - Implementazione più rapida
 - Miglior compattezza
 - Miglior capacità di mantenimento
@@ -22,8 +22,6 @@ Durante la progettazione di un SO dobbiamo pensare a...
 - <mark class="hltr-purple">Meccanismo</mark> : Come fare? (*processo*)
 
 La separazione tra le due è fondamentale, perché permette la maggior flessibilitá se le policy devono essere modificate.
-
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 Esistono inoltre delle *"filosofie"* di progettazione... 
 
@@ -42,7 +40,7 @@ Esistono diverse architetture ...
 I sistemi monoblocco <mark class="hltr-red">non hanno una gerarchia</mark>, questo comporta :
 - Presente un unico strato SW tra utente e HW.
 - I componenti sono tutti allo stesso livello.
-- Le procedure che possono chiamarsi a vicenda.
+- Le procedure possono chiamarsi a vicenda.
 
 Gli svantaggi sono :
 - I pezzi di codice dipendenti dall’HW sono sparsi su tutto il S.O.

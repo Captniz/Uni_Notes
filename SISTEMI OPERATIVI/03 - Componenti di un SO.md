@@ -36,7 +36,7 @@ Un processo necessità oltre all'esecuzione sequenziale delle proprie istruzioni
 
 Inoltre esistono processi di due tipi, differenziati dal loro livello di permessi, detti <mark class="hltr-orange">processi del SO</mark> e <mark class="hltr-purple">processi utente</mark>.
 
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 
 Il sistema operativo, per quanto riguarda i processi gestisce...
 - **Creazione e distruzione** di processi. 
@@ -173,9 +173,9 @@ L'esempio migliore di GUI è il *desktop*:
 <hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 ### Comandi dei programmi tramite API
-La shell è legata all'utente, i programmi invece inviano syscalls **tramite un interfaccia (*API*) offerta dal SO**, spesso scritte in *C* e *Assembly*.
+> La shell è legata all'utente, i programmi invece inviano syscalls **tramite un interfaccia (*API*) offerta dal SO**, spesso scritte in *C* e *Assembly*.
 
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 
 
 L'API è solitamente una funzione di medio livello che maschera i dettagli implementativi della SysCall (Eg. `read(fd, buffer, size)`).
@@ -228,14 +228,16 @@ API <mark class="hltr-red">DELLO STESSO TIPO</mark> gerantiscono (*in teoria*) l
 > - **VM** : Lenta all avvio e pesante sulle risorse dell'host. Compatibilità totale e impatto sulla performance dei programmi simulati minore.  
 > 
 
+<hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 ### Processo di una SysCall
 Ogni SysCall ha un numero associato, e il SO mantiene una tabella indicizzata secondo questi numeri per poterle chiamare. 
 
-Dopo l'invocazione della SysCall, è necessario passarne i parametri al SO (Kernel); questo può avvenire in tre modi... 
+Dopo l'invocazione della SysCall, è necessario **passarne i parametri** al SO (Kernel); questo può avvenire in tre modi... 
 
-- Passa i parametri tramite registri.
-- Passa i parametri tramite lo stack del processo.
-- Memorizzare i parametri in una tabella in memoria.
+- Passa i parametri tramite **registri**.
+- Passa i parametri tramite lo **stack** del processo.
+- Memorizzare i parametri in una tabella in **memoria**.
 
 
 

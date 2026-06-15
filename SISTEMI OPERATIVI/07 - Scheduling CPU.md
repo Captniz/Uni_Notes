@@ -235,7 +235,6 @@ La *starvation* implica che processi a bassa priorità possono non venire mai es
 
 La soluzione è l'<mark class="hltr-purple">aging</mark>, cioè l'aumento della priorità col passare del tempo.
 
-<hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 Anche in questo caso si può parlare di preemptive ...
 
@@ -244,10 +243,10 @@ Anche in questo caso si può parlare di preemptive ...
 
 La priorità, il *response ratio* ...
 $$
-R = (t_\text{wait}+t_\text{burst})/t_\text{burst}
+R = \frac{(t_\text{wait}+1)}{t_\text{burst}}
 $$
 
-va ricalcolata al termine di un processo (*solo se nel frattempo ne sono arrivati altri*) oppure, al termine di un processo.
+va ricalcolata al termine di un burst (*solo se nel frattempo ne sono arrivati altri*) oppure, al termine di un processo.
 
 Con questa formula sono favoriti i processi che:
 - Completano in poco tempo (*come SJF*)

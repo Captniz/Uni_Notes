@@ -6,7 +6,7 @@ Related PDF/DOC:
   - "[[06-Processi e Thread.pdf]]"
 Related Pages:
 ---
-## Il processo
+## I processi
 >  Istanza di programma in esecuzione.
 
 Un processo esegue le proprie istruzioni in maniera *sequenziale*...
@@ -58,11 +58,12 @@ Il PCB contiene i seguenti dati :
 
 Gli stati si susseguono in linea teorica e sono :
 - NEW
-- WAITING
+- READY
 - RUNNING
+- WAITING
 - FINISHED
 
-Tra un processo può tornare indietro solo tra running e waiting tramite un meccanismo chiamato *prelazione* ( *il contrario di  dispatch : wait $\to$ running*).
+Tra un processo può tornare indietro solo tra `running` e `ready` tramite un meccanismo chiamato **_prelazione_** ( *il contrario di  dispatch : `ready` $\to$ `running`*).
 
 
 > [!example] Schema completo degli stati di un processo
@@ -203,8 +204,8 @@ Le thread condividono tra loro :
 <hr style="width: 70%; margin-left: auto;margin-right: auto;">
 
 Un thread ha vari attributi, ad esempio ...
-- La sua priorità (*influenza la frequenza con cui verrà schedulato*).
-- La dimensione del suo stack (*che specifica la quantità massima di argomenti che gli si possono passare, la profondità delle chiamate ricorsive, ...*).
+- La sua **priorità** (*influenza la frequenza con cui verrà schedulato*).
+- La **dimensione del suo stack** (*che specifica la quantità massima di argomenti che gli si possono passare, la profondità delle chiamate ricorsive, ...*).
 
 ### Multi-Threading
 > Possibilità di supportare più thread per un singolo processo.
