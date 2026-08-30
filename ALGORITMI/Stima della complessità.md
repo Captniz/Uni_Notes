@@ -22,7 +22,7 @@ Possiamo assumere che gli *"elementi"* siano rappresentati da un numero costante
 
 ---
 
-Il <mark class="hltr-blue">tempo</mark> invece è definito come **numero di istruzioni elementari** ( *Come visto [[0_Introduzione agli algoritmi#Efficienza|nell'analisi dell'efficienza]]* ). 
+Il <mark class="hltr-blue">tempo</mark> invece è definito come **numero di istruzioni elementari** ( *Come visto [[1_Introduzione agli algoritmi#Efficienza|nell'analisi dell'efficienza]]* ). 
 
 In particolare un’istruzione si considera <mark class="hltr-orange">elementare</mark> se può essere eseguita in tempo *"costante"* dal processore.
 
