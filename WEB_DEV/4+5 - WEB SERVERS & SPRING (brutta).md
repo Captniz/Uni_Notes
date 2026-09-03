@@ -194,14 +194,14 @@ We can use more than a Controller in our web app, for ...
 - Different HTTP methods 
 - User roles and permissions (admin vs. user; public vs. private)  
 
-Sometimes, a HTTP response is prepared by more methods of the same Controller or more methods of different controllers. to do this we do forwarding.
+Sometimes, a HTTP response is prepared by more methods of the same Controller or more methods of different controllers. to do this we do `forwarding`.
 
 Forward refers to the process of forwarding a request from one method (controller) to another one within the same web app.internal server-side routing mechanism performed by the Dispatcher Servlet.  The URL in the browser does not change.
 
 Spring, under the hood, provides an infrastructure based on the Front Controller pattern.
 
 Sometimes a Controller decides that it does not want to manage a request at all, so it forces the client to send a new request to somebody else  
-Through redirect the server instructs the client's browser to make a new HTTP request to a different URL to the same/another web app in the same /another web server  
+Through `redirect` the server instructs the client's browser to make a new HTTP request to a different URL to the same/another web app in the same /another web server  
 Done trough response to the request with a status code 301 and a “location” header with a URL as the value  
 
 
@@ -333,7 +333,7 @@ In all the responses to the client, the web server automatically and transparent
 - has no expiration time 
 - dies at the end of the session  
 
-In spring Sessions are represented by an instance of a class that implements the HttpSession interface  
+In spring Sessions are represented by an instance of a class that implements the `HttpSession` interface  
 
 When a `@SessionScope` bean is used by the web app, Tomcat retrieves or creates the HTTP session: 
 - If no session still exists: 

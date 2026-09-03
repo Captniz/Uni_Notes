@@ -80,6 +80,7 @@ Today, to perform element selection is preferable to use:
 - `document.querySelectorAll(cssSelector)` It returns (if found) a NodeList of all elements that match the specified CSS selector. Otherwise an empty NodeList  
 
 <hr style="width: 70%; margin-left: auto;margin-right: auto;">
+
 ## Eventi
 Events are "things" that happen to HTML elements
 
