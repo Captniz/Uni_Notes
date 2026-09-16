@@ -4,3 +4,9 @@ img[alt*="center"] {
     margin-right: auto;
 }
 
+.markdown-rendered img,
+.cm-line .cm-embed-block:has(img) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
