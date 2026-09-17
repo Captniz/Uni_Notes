@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "LiBrain",
+      "FasGears",
       "SiWindows95",
       "IbInternetBrowser",
-      "LiWeight",
-      "TiGeometry",
-      "LiNetwork"
+      "LiWeight"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [
@@ -85,5 +85,7 @@
   "RETI": "LiNetwork",
   "GEOMETRIA": "TiGeometry",
   "WEB_DEV": "IbInternetBrowser",
-  "SISTEMI OPERATIVI": "SiWindows95"
+  "SISTEMI OPERATIVI": "SiWindows95",
+  "LFC": "FasGears",
+  "LOGICA": "LiBrain"
 }
