@@ -5,8 +5,7 @@
   "monospaceFontFamily": "FiraCode Nerd Font Mono",
   "textFontFamily": "Inter,FiraCode Nerd Font",
   "enabledCssSnippets": [
-    "ChangeTag",
-    "CenterImg"
+    "ChangeTag"
   ],
   "baseFontSize": 17,
   "showRibbon": true

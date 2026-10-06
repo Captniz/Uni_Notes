@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "TiCode",
+      "FasCode",
       "TiRobot",
       "LiBrain",
-      "FasGears",
-      "SiWindows95",
-      "IbInternetBrowser"
+      "FasGears"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [
@@ -88,5 +88,6 @@
   "SISTEMI OPERATIVI": "SiWindows95",
   "LFC": "FasGears",
   "LOGICA": "LiBrain",
-  "ROBOTICA": "TiRobot"
+  "ROBOTICA": "TiRobot",
+  "PROGRAMMAZIONE ADV": "TiCode"
 }
